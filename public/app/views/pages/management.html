@@ -1,0 +1,183 @@
+
+<body>
+<div id="wrapper">
+
+
+<!-- Header
+================================================== -->
+
+<div class="clearfix"></div>
+
+
+<!-- Titlebar
+================================================== -->
+<div id="titlebar" class="single">
+	<div class="container">
+
+		<div class="sixteen columns">
+			<h2>Manage Applications</h2>
+			<nav id="breadcrumbs">
+				<ul>
+					<li>You are here:</li>
+					<li><a href="#">Home</a></li>
+					<li>Job Dashboard</li>
+				</ul>
+			</nav>
+		</div>
+
+	</div>
+</div>
+
+
+<!-- Content
+================================================== -->
+<div class="container">
+	
+	<!-- Table -->
+	<div class="sixteen columns">
+
+		<p class="margin-bottom-25" style="float: left;">The job applications for <strong><a href="#">Sport Leader</a></strong> are listed below.</p>
+		<strong><a href="#" class="download-csv">Download CSV</a></strong>
+
+	</div>
+
+
+	<div class="eight columns">
+		<!-- Select -->
+		<select data-placeholder="Filter by status" class="chosen-select-no-single">
+			<option value="">Filter by status</option>
+			<option value="new">New</option>
+			<option value="Contacted">Contacted</option>
+			<option value="interviewed">Interviewed</option>
+			<option value="Hired">Hired</option>
+			<option value="Pending">Rejected</option>
+
+		</select>
+		<div class="margin-bottom-15"></div>
+	</div>
+
+	<div class="eight columns">
+		<!-- Select -->
+		<select data-placeholder="Newest first" class="chosen-select-no-single">
+			<option value="">Newest first</option>
+			<option value="name">Sort by name</option>
+			<option value="rating">Sort by rating</option>
+		</select>
+		<div class="margin-bottom-35"></div>
+	</div>
+
+
+	<!-- Applications -->
+	<div class="sixteen columns">
+		
+		<!-- Application #1 -->
+		<div>
+		<div class="application" ng-repeat="x in management.apps" >
+			<div class="app-content" >
+				
+				<!-- Name / Avatar -->
+				<div class="info">
+					<img src="assets/images/resumes-list-avatar-01.png" alt="">
+					<span>{{x.fullname}}</span>
+					<ul>
+						<li><a target="_self" href="../assets/uploads/files/{{x.cv}}" download="{{x.cv}}">Download Cv</a></li>
+					</ul>
+				</div>
+				
+				<!-- Buttons -->
+				<!-- <div class="buttons">
+					<a href="#one-1" class="button gray app-link"><i class="fa fa-pencil"></i> Edit</a>
+					<a href="#two-1" class="button gray app-link"><i class="fa fa-sticky-note"></i> Add Note</a>
+					<a href="#three-1" class="button gray app-link"><i class="fa fa-plus-circle"></i> Show Details</a>
+				</div> -->
+<!-- 				<div class="clearfix"></div>
+ -->
+			</div>
+
+			<!--  Hidden Tabs -->
+			<div class="app-tabs">
+
+<!-- 				<a href="#" class="close-tab button gray"><i class="fa fa-close"></i></a>
+ -->				
+				<!-- First Tab -->
+<!-- 			   //<div class="app-tab-content" id="one-1">
+ -->
+					<!-- <div class="select-grid">
+						<select data-placeholder="Application Status" class="chosen-select-no-single">
+						<option value="">Filter by status</option>
+			<option value="new">New</option>
+			<option value="Contacted">Contacted</option>
+			<option value="interviewed">Interviewed</option>
+			<option value="Hired">Hired</option>
+			<option value="Pending">Rejected</option>
+						</select>
+					</div>
+
+					<div class="select-grid">
+						<input type="number" min="1" max="5" placeholder="Rating (out of 5)">
+					</div> -->
+
+<!-- 					<div class="clearfix"></div>
+ --><!-- 					<a href="#" class="button margin-top-15">Save</a>
+ -->					<a href="#" class="button gray margin-top-15 delete-application">Delete this application</a>
+
+<!-- 			    </div>
+ -->			    
+			    <!-- Second Tab -->
+			   <!--  <div class="app-tab-content"  id="two-1">
+					<textarea placeholder="Private note regarding this application"></textarea>
+					<a href="#" class="button margin-top-15">Add Note</a>
+			    </div> -->
+			    
+			    <!-- Third Tab -->
+			    <div class="app-tab-content"  id="three-1">
+					<i>Full Name:</i>
+					<span>{{x.fullname}}</span>
+
+					<i>Email:</i>
+					<span><a href="">{{x.email}}</a></span>
+
+					<i>Message:</i>
+					<span>{{x.description}} </span>
+
+					<i>Job Title:</i>
+					<span>{{x.jobtitle}} </span>
+			    </div>
+
+			</div>
+
+			<!-- Footer -->
+		<!-- 	<div class="app-footer">
+
+				<div class="rating no-stars">
+					<div class="star-rating"></div>
+					<div class="star-bg"></div>
+				</div>
+
+				<ul>
+					<li><i class="fa fa-file-text-o"></i> New</li>
+					<li><i class="fa fa-calendar"></i> September 20, 2018</li>
+				</ul>
+				<div class="clearfix"></div>
+
+			</div> -->
+		</div>
+
+</div>
+		
+
+
+	</div>
+</div>
+
+
+<!-- Footer
+================================================== -->
+
+</div>
+<!-- Wrapper / End -->
+
+
+
+
+</body>

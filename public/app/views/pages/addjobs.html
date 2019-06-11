@@ -1,0 +1,129 @@
+
+<body>
+<div id="wrapper">
+
+
+<!-- Header
+================================================== -->
+
+<!-- Titlebar
+================================================== -->
+<br>
+<div id="titlebar" class="single submit-page">
+	<div class="container">
+
+		<div class="sixteen columns">
+			<h2><i class="fa fa-plus-circle"></i> Add Job</h2>
+		</div>
+
+	</div>
+</div>
+
+
+<!-- Content
+================================================== -->
+<div class="container">
+	
+	<!-- Submit Page -->
+	<div class="sixteen columns">
+		<div class="submit-page">
+<form ng-submit="management.postJob(data)">
+	
+
+			<!-- Notice -->
+			
+			<!-- Title -->
+			<div class="form">
+				<h5>Job Title</h5>
+				<input class="search-field" type="text" placeholder="" value=""  ng-model="data.jobtitle"/>
+			</div>
+
+			<!-- Location -->
+			<div class="form">
+				<h5>Location <span>(optional)</span></h5>
+				<input class="search-field" type="text" placeholder="e.g. Cairo"  ng-model="data.location" value=""/>
+				<p class="note">Leave this blank if the location is not important</p>
+			</div>
+
+			<!-- Job Type -->
+			<div class="form">
+				<h5>Job Type</h5>
+				<select data-placeholder="Full-Time"  ng-model="data.jobtype">
+					<option value="Full-Time">Full-Time</option>
+					<option value="Part-Time">Part-Time</option>
+					<option value="Internship">Internship</option>
+				</select>
+			</div>
+
+			<div class="form">
+				<h5>Posting Priority</h5>
+				<select data-placeholder="Full-Time" >
+					<option value="Full-Time">High Priority</option>
+					<option value="Part-Time">Normal</option>
+					<option value="Internship">Low</option>
+				</select>
+			</div>
+
+
+
+			<!-- Choose Category -->
+			<div class="form">
+				<div class="select">
+					<h5>Category</h5>
+					<select data-placeholder="Choose Categories"  ng-model="data.category" >
+						<option value="IT">IT</option>
+						<option value="Retail">Retail</option>
+						<option value="HR">HR</option>
+						<option value="Production">Production</option>
+						<option value="Finance">Finance</option>
+						<option value="Communication">Communication</option>
+						<option value="Ecommerce">Ecommerce</option>
+					</select>
+				</div>
+			</div>
+
+			<!-- Tags -->
+			<div class="form">
+				<h5>Job Tags <span>(optional)</span></h5>
+				<input class="search-field" type="text" placeholder="e.g. PHP, Social Media, Management" value="" ng-model="data.tags"/>
+				<p class="note">Comma separate tags, such as required skills or technologies, for this job.</p>
+			</div>
+
+
+			<!-- Description -->
+			<div class="form">
+				<h5>Description</h5>
+				<textarea class="WYSIWYG" name="summary" cols="40" rows="3" id="summary" spellcheck="true" ng-model="data.description"></textarea>
+			</div>
+
+			
+			<!-- TClosing Date -->
+			<div class="form">
+				<h5>Closing Date <span>(optional)</span></h5>
+				<input data-role="date" type="text" placeholder="yyyy-mm-dd" ng-model="data.date">
+				<p class="note">Deadline for new applicants.</p>
+			</div>
+
+			
+			
+
+			<div class="divider margin-top-0"></div>
+			<a href="#" class="button big margin-top-5" ng-click="management.postJob(data)">Preview <i class="fa fa-arrow-circle-right"></i></a>
+
+</form>
+		</div>
+	</div>
+
+</div>
+
+
+<!-- Footer
+================================================== -->
+
+
+
+		
+</div>
+
+
+</body>

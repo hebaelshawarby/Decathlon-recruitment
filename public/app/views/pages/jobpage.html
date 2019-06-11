@@ -1,0 +1,165 @@
+<style type="text/css">
+  .parallax {
+  /* The image used */
+  background-image: url('/assets/images/pic2.jpeg');
+
+  /* Full height */
+  height: 100%; 
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;}
+
+  .xxx{
+  	background-image: url('/assets/images/ss.png');
+  }
+</style>
+<body ng-controller="mainCtrl">
+
+
+
+<!-- Header
+================================================== -->
+
+
+
+<!-- Titlebar
+================================================== -->
+<br>
+<div id="titlebar" >
+	<div class="container ">
+		<div class="ten columns">
+			<span><a href="">{{jobcategory}}</a></span>
+			<h2>{{jobtitle}} <span class="full-time">{{jobtype}}</span></h2>
+		</div>
+
+		<!-- <div class="six columns">
+			<a href="#" class="button dark"><i class="fa fa-star"></i> Bookmark This Job</a>
+		</div> -->
+
+	</div>
+</div>
+
+
+<!-- Content
+================================================== -->
+<div class="container">
+	
+	<!-- Recent Jobs -->
+	<div class="eleven columns">
+	<div class="padding-right">
+		
+		<!-- Company Info -->
+		<div class="company-info">
+			<img src="assets/images/company-logo.png" alt="">
+			<div class="content">
+				<h4>{{joblocation}}</h4>
+				<!-- <span><a href="#"><i class="fa fa-link"></i> Website</a></span>
+				<span><a href="#"><i class="fa fa-twitter"></i> @kingrestaurants</a></span> -->
+			</div>
+			<div class="clearfix"></div>
+		</div>
+
+
+		<p style=" word-wrap: break-word;" >
+			{{jobdescription}}
+		</p>
+
+		<br>
+		<p>The <strong>Customer Service Specialist</strong> will have responsibilities that include:</p>
+
+		<ul class="list-1">
+			<li>Executing the Food Service program, including preparing and presenting our wonderful food offerings
+			to hungry customers on the go!nsjndjksandsadjaksndasnjdnsandjskandjsanjdnsajkdn
+			</li>
+			<li>Greeting customers in a friendly manner and suggestive selling and sampling items to help increase sales.</li>
+			<li>Keeping our Store food area looking terrific and ready for our valued customers by managing product 
+			inventory, stocking, cleaning, etc.</li>
+			<li>We’re looking for associates who enjoy interacting with people and working in a fast-paced environment!</li>
+		</ul>
+		
+		<br>
+
+		<h4 class="margin-bottom-10">Job Requirment</h4>
+
+		<ul class="list-1">
+			<li>Excellent customer service skills, communication skills, and a happy, smiling attitude are essential.</li>
+			<li>Must be available to work required shifts including weekends, evenings and holidays.</li>
+			<li>Must be able to perform repeated bending, standing and reaching.</li>
+			<li> Must be able to occasionally lift up to 50 pounds</li>
+		</ul>
+
+	</div>
+	</div>
+
+
+	<!-- Widgets -->
+	<div class="five columns">
+
+		<!-- Sort by -->
+		<div class="widget">
+			<h4>Overview</h4>
+
+			
+				
+					
+					
+
+				<form  ng-submit="Submit(regData)">
+							<input type="text" placeholder="Full Name" value="" ng-model="regData.fullname"/>
+							<input type="text" placeholder="Email Address" value="" ng-model="regData.email" />
+							<input type="text" placeholder="Phone" value="" ng-model="regData.phone" />
+							<textarea placeholder="Your message / cover letter sent to the employer" ng-model="regData.description"></textarea>
+
+							<!-- Upload CV -->
+							<div class="upload-info"><strong>Upload your CV (optional)</strong> <span>Max. file size: 5MB</span></div>
+							<div class="clearfix"></div>
+
+							<label class="upload-btn">
+   <input type="file" name="myfile" file-model="myfile.upload" class="form-control input-lg" placeholder="Enter CV" >Browse
+							</label>
+
+							<div class="divider"></div>
+
+							<button class="send" data-toggle="modal" data-target="#myModal">Send Application</button>
+						</form>
+			
+					
+
+ 
+
+<!--  -->
+
+
+					
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+	<!-- Widgets / End -->
+
+
+</div>
+
+
+
+
+</div>
+<!-- Wrapper / End -->
+
+
+
+
+
+
+
+</body>
+<div class="parallax" style="height: 400px">
+	<br>
+	<br>
+</div>
