@@ -1,0 +1,102 @@
+
+<div id="titlebar" class="single">
+  <div class="container">
+
+    <div class="sixteen columns">
+      <h2>Manage Jobs</h2>
+      <nav id="breadcrumbs">
+        <ul>
+          <li>You are here:</li>
+          <li><a href="#">Home</a></li>
+          <li>Job Dashboard</li>
+        </ul>
+      </nav>
+    </div>
+
+  </div>
+</div>
+<div class="container" >
+  
+<button type="button" ng-click="management.showMore(number);" class="btn btn-success">Apply Filter</button>
+
+<!--/ Show All Button -->
+<button type="button" ng-click="management.showAll();" class="btn btn-warning">Show All</button>
+
+<!-- Input For Filter  -->
+<div style="display: inline;">
+    <div class="col-lg-6">
+        <div class="input-group">
+            <span class="input-group-addon">Results to display:</span>
+            <input type="text" class="form-control" ng-model="number">
+        </div>
+    </div>
+</div>
+
+  <!-- Table -->
+  <div class="sixteen columns">
+
+    <p class="margin-bottom-25">Your listings are shown in the table below.</p>
+
+<table class="table table-striped w-auto" id="myPager">
+
+  <!--Table head-->
+  <thead>
+    <tr>
+      <th>#ID</th>
+      <th>Title</th>
+      <th>Sport</th>
+      <th>Location</th>
+      <th>Job type</th>
+      <th>category</th>
+      <th>Manage</th>
+    </tr>
+  </thead>
+  <!--Table head-->
+
+  <!--Table body-->
+  <tbody class="table-info">
+
+      
+ 
+    <tr ng-repeat="x in management.jobs | limitTo:management.limit" >
+      <th scope="row">{{x._id}}</th>
+      <td>{{x.jobtitle}}</td>
+      <td>{{x.sport}}</td>
+      <td>{{x.location}}</td>
+      <td>{{x.jobtype}}</td>
+      <td>{{x.category}}</td>
+      <td>
+        <a href="/editjob/{{x._id}}">
+          <button type="button" ng-show="management.editAccess" class="btn btn-primary">Edit </button>
+        </a>
+        <a href="">
+          <button type="button"  ng-click="management.deleteJob(x._id)" class="btn btn-danger" ng-show="management.deleteAccess" >delete </button>
+        </a>
+      </td>
+    </tr>
+   
+    
+  </tbody>
+  <!--Table body-->
+
+
+</table>
+<!--Table-->
+ <div class="col-md-12 text-center">
+      <ul class="pagination pagination-lg pager" id="myPager"></ul>
+      </div>
+
+</div>
+
+
+<!-- Footer
+================================================== -->
+
+
+</div>
+<script type="text/javascript">
+  $(document).ready(function () {
+  $('#myPager').DataTable();
+  $('.dataTables_length').addClass('bs-select');
+});
+</script>
