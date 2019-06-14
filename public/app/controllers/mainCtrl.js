@@ -1,4 +1,4 @@
-angular.module('mainController',['userServices','authServices','fileModelDirective','uploadFileService'])
+angular.module('mainController',['userServices','authServices','fileModelDirective','uploadFileService','export'])
 .controller('mainCtrl',function(Auth,$location,$timeout,$rootScope,uploadFile,$scope,User,$localstorage,$window){
 	var app=this;
 
@@ -21,9 +21,11 @@ angular.module('mainController',['userServices','authServices','fileModelDirecti
 					$localstorage.set('show',true );
 					app.loadme=true;
 					$scope.show=true;
+					app.authorized=true
 				}
 				else
 				{
+					app.loadme=true;
 					$localstorage.set('show',false );
 				}
 			})
@@ -35,6 +37,7 @@ angular.module('mainController',['userServices','authServices','fileModelDirecti
 	}
 
 // })
+$scope.message=""
 $scope.istrue=app.authorized
 
 console.log(app.authorized)

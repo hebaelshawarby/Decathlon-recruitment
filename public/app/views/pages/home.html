@@ -23,11 +23,16 @@
 
 <!-- Banner
 ================================================== -->
-<div id="banner" class="with-transparent-header parallax background" style="background-image: url(../assets/images/decathlon.mp4)" data-img-width="2000" data-img-height="1330" data-diff="300">
+<div id="banner" class="with-transparent-header parallax background" style="overflow:hidden;background:transparent;position: relative;width: 100%;height: 100%" data-img-width="2000" data-img-height="1330" data-diff="300">
+	<video class="fullscreen-bg-content" autoplay loop muted src="assets/images/decathlon.mp4"
+			style="position:absolute;min-width: 100%;min-height: 100%;top:0;left:0"></video>
+	<div style="position:absolute;min-width: 100%;min-height: 100%;top:0;left:0;background:rgba(0,0,0,0.4)"></div>
 	<div class="container">
-		<div class="sixteen columns">
+		<div class="sixteen columns" >
 			
 			<div class="search-container">
+  
+
 
 				<!-- Form -->
 				<h2>Find Job</h2>
@@ -54,28 +59,123 @@
 
 <!-- Content
 ================================================== -->
-	
 
+<div style="background-image: url(../assets/images/ggh.jpg);background-size: 1500px">
 <!-- Categories -->
 <div class="container">
 	<div class="sixteen columns">
 		<h3 class="margin-bottom-20 margin-top-10">Popular Categories</h3>
 
 <div >
-		<h3>Tabs</h3>
+		
 		<div class="margin-bottom-20"></div>
 
 		<!-- Tabs Navigation -->
-		<ul class="tabs-nav">
-			<li class="active"><a href="#tab1">Role By Sport</a></li>
-			<li><a href="#tab2">Role By Department</a></li>
-			<li><a href="#tab3">Role By City</a></li>
-		</ul>
-
+		<ul class="nav nav-tabs" id="myTab" role="tablist">
+  <li class="nav-item">
+    <a class="nav-link active" id="sport-tab" data-toggle="tab" data-target="#sport" role="tab" a>Role By Sport</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="department-tab" data-toggle="tab" data-target="#department" role="tab">Role By Department</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="city-tab" data-toggle="tab" data-target="#city" role="tab" >Role By City</a>
+  </li>
+</ul>
 		<!-- Tabs Content -->
-		<div class="tabs-container">
-			<div class="tab-content" id="tab1">
-		<div class="categories-boxes-container">
+		<div class="tab-content" id="myTabContent">
+  <div class="tab-pane fade show active" id="sport" role="tabpanel">
+  	<div class="categories-boxes-container">
+				
+				<!-- Box -->
+				<a href="" ng-click="division('all')" class="category-small-box">
+					<i class="ln ln-icon-Globe"></i>
+					<h4>TRECKING</h4>
+					<span>32</span>
+				</a>
+
+				<!-- Box -->
+				<a href="" ng-click="division('retail')" class="category-small-box">
+					<i class="ln  ln-icon-Business-ManWoman"></i>
+					<h4>RUNNING</h4>
+					<span>76</span>
+				</a>
+
+				<!-- Box -->
+				<a href="" ng-click="division('communication')" class="category-small-box">
+					<i class="ln  ln-icon-Computer"></i>
+					<h4>GYM</h4>
+					<span>31</span>
+				</a>
+
+				<!-- Box -->
+				<a href="" ng-click="division('design')" class="category-small-box">
+					<i class="ln  ln-icon-Edit"></i>
+					<h4>FOOTBALL</h4>
+					<span>76</span>
+				</a>
+
+				<!-- Box -->
+				<a href="" ng-click="division('ecommerce')"class="category-small-box">
+					<!-- <i class="ln ln-icon-Medical-Sign"></i> -->
+					<i class="ln ln-icon-Add-Cart"></i>
+					<h4>SKATEBOARDING</h4>
+					<span>32</span>
+				</a>
+
+				<!-- Box -->
+				<a href="" ng-click="division('finance')" class="category-small-box">
+					<i class="ln ln-icon-Money-Bag"></i>
+					<h4>CYCLING</h4>
+					<span>67</span>
+				</a>
+
+				<!-- Box -->
+				<a href="" ng-click="division('real estate')" class="category-small-box">
+					<i class="ln ln-icon-Building"></i>
+					<h4>CRICKET</h4>
+					<span>45</span>
+				</a>
+
+				<!-- Box -->
+				<a href="" ng-click="division('it')" class="category-small-box">
+					<i class="ln   ln-icon-Laptop-3"></i>
+					<h4>SWIMMING</h4>
+					<span>96</span>
+				</a>
+
+				<a href="" ng-click="division('production')" class="category-small-box">
+					<i class="ln  ln-icon-Worker"></i>
+					<h4>VOLLEYBALL</h4>
+					<span>96</span>
+				</a>
+
+				<a href=""  ng-click="division('hr')"class="category-small-box">
+					<i class="ln   ln-icon-Paper"></i>
+					<h4>BADMINTON</h4>
+					<span>96</span>
+				</a>
+
+				<a href=""  ng-click="division('supply')"class="category-small-box">
+					<i class="ln ln-icon-Car"></i>
+					<h4>AMERICAN FOOTBALL</h4>
+					<span>96</span>
+				</a>
+
+
+			</div>
+
+		<div class="clearfix"></div>
+		<div class="margin-top-30"></div>
+
+		<a href="browse-categories.html" class="button centered">Browse All Categories</a>
+		<div class="margin-bottom-55"></div>
+
+  </div>
+
+
+  <div class="tab-pane fade" id="department" role="tabpanel" >
+  	<div class="categories-boxes-container">
 				
 				<!-- Box -->
 				<a href="" ng-click="division('all')" class="category-small-box">
@@ -161,100 +261,11 @@
 		<a href="browse-categories.html" class="button centered">Browse All Categories</a>
 		<div class="margin-bottom-55"></div>
 
-
-			</div>
-
-			<div class="tab-content" id="tab2">
-				<div class="categories-boxes-container">
-				
-				<!-- Box -->
-				<a href="" ng-click="division('all')" class="category-small-box">
-					<i class="ln ln-icon-Globe"></i>
-					<h4>ALL Division</h4>
-					<span>32</span>
-				</a>
-
-				<!-- Box -->
-				<a href="" ng-click="division('retail')" class="category-small-box">
-					<i class="ln  ln-icon-Business-ManWoman"></i>
-					<h4>Retail</h4>
-					<span>76</span>
-				</a>
-
-				<!-- Box -->
-				<a href="" ng-click="division('communication')" class="category-small-box">
-					<i class="ln  ln-icon-Computer"></i>
-					<h4>Communication</h4>
-					<span>31</span>
-				</a>
-
-				<!-- Box -->
-				<a href="" ng-click="division('design')" class="category-small-box">
-					<i class="ln  ln-icon-Edit"></i>
-					<h4>Design</h4>
-					<span>76</span>
-				</a>
-
-				<!-- Box -->
-				<a href="" ng-click="division('ecommerce')"class="category-small-box">
-					<!-- <i class="ln ln-icon-Medical-Sign"></i> -->
-					<i class="ln ln-icon-Add-Cart"></i>
-					<h4>E-commerce</h4>
-					<span>32</span>
-				</a>
-
-				<!-- Box -->
-				<a href="" ng-click="division('finance')" class="category-small-box">
-					<i class="ln ln-icon-Money-Bag"></i>
-					<h4>Finance</h4>
-					<span>67</span>
-				</a>
-
-				<!-- Box -->
-				<a href="" ng-click="division('real estate')" class="category-small-box">
-					<i class="ln ln-icon-Building"></i>
-					<h4>Real Estate</h4>
-					<span>45</span>
-				</a>
-
-				<!-- Box -->
-				<a href="" ng-click="division('it')" class="category-small-box">
-					<i class="ln   ln-icon-Laptop-3"></i>
-					<h4>IT</h4>
-					<span>96</span>
-				</a>
-
-				<a href="" ng-click="division('production')" class="category-small-box">
-					<i class="ln  ln-icon-Worker"></i>
-					<h4>Production</h4>
-					<span>96</span>
-				</a>
-
-				<a href=""  ng-click="division('hr')"class="category-small-box">
-					<i class="ln   ln-icon-Paper"></i>
-					<h4>Human Rescources</h4>
-					<span>96</span>
-				</a>
-
-				<a href=""  ng-click="division('supply')"class="category-small-box">
-					<i class="ln ln-icon-Car"></i>
-					<h4>Supply/Logistics</h4>
-					<span>96</span>
-				</a>
+  </div>
 
 
-			</div>
-
-		<div class="clearfix"></div>
-		<div class="margin-top-30"></div>
-
-		<a href="browse-categories.html" class="button centered">Browse All Categories</a>
-		<div class="margin-bottom-55"></div>
-
-			</div>
-
-			<div class="tab-content" id="tab3">
-				<div class="categories-boxes-container">
+  <div class="tab-pane fade" id="city" role="tabpanel">
+  	<div class="categories-boxes-container">
 				
 				<!-- Box -->
 				<a href="" ng-click="division('all')" class="category-small-box">
@@ -295,23 +306,22 @@
 		<a href="browse-categories.html" class="button centered">Browse All Categories</a>
 		<div class="margin-bottom-55"></div>
 
-			 </div>
-		</div>
-
-	<br>
-	</div>
-
+  </div>
+</div>
+</div></div>
 
 
 			<!-- Popular Categories -->
 				</div>
 </div>
 
+</div>
 
 <div class="container">
+	<div class="row">
 	
 	<!-- Recent Jobs -->
-	<div class="eleven columns">
+	<div class="col-md-8">
 	<div class="padding-right">
 		<h3 class="margin-bottom-25">Recent Jobs</h3>
 		<div class="listings-container">
@@ -387,7 +397,7 @@
 	</div>
 
 	<!-- Job Spotlight -->
-	<div class="five columns">
+	<div class="col-md-4">
 		<h3 class="margin-bottom-5">Job Spotlight</h3>
 
 		<!-- Navigation -->
@@ -448,6 +458,7 @@
 
 	</div>
 </div>
+</div>
 
 <div class="parallax" style="height: 400px">
 	<br>
@@ -487,7 +498,7 @@
 
 	</div>
 </div> -->
-<section class="fullwidth-testimonial margin-top-15">
+<section class="fullwidth-testimonial margin-top-15" style="background-image: url(../assets/images/4banner.jpg)">
 
 	<!-- Info Section -->
 	<div class="container">
@@ -502,7 +513,7 @@
 
 	<!-- Testimonials Carousel -->
 	<div class="fullwidth-carousel-container margin-top-20">
-		<div class="testimonial-carousel testimonials">
+		<div class="testimonial-carousel testimonials" style="background-color: white">
 			
 			<!-- Item -->
 			<div class="fw-carousel-review">
@@ -557,11 +568,14 @@
 
 <!-- Recent Posts -->
 <div class="container">
+		<div class="row">
+
 	<div class="sixteen columns">
 		<h3 class="margin-bottom-25">Recent Posts</h3>
 	</div>
-
-	<div class="one-third column">
+</div>
+	<div class="row">
+	<div class="col-md-4">
 
 		<!-- Post #1 -->
 		<div class="recent-post">
@@ -578,7 +592,7 @@
 	</div>
 
 
-	<div class="one-third column">
+	<div class="col-md-4">
 
 		<!-- Post #2 -->
 		<div class="recent-post">
@@ -594,7 +608,7 @@
 
 	</div>
 
-	<div class="one-third column">
+	<div class="col-md-4">
 
 		<!-- Post #3 -->
 		<div class="recent-post">
@@ -608,6 +622,8 @@
 			<a href="blog-single-post.html" class="button">Read More</a>
 		</div>
 	</div>
+</div>
+
 
 </div>
 
@@ -617,6 +633,7 @@
 
 </div>
 <!-- Wrapper / End -->
+<script src="assets/js/custom.js"></script>
 
 
 

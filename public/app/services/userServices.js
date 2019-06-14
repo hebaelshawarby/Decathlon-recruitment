@@ -31,6 +31,10 @@ angular.module('userServices',[])
 		return $http.post('/api/registerModerator' ,data);
 		
 	}
+	userFactory.editJob=function(data){
+		return $http.put('/api/editjob' ,data);
+		
+	}
 
 	userFactory.adminPostJob=function(regData){
 		return $http.post('/api/postjob' ,regData).then(function(data){
@@ -62,6 +66,11 @@ angular.module('userServices',[])
    userFactory.changestate = function(obj) {
         return $http.put('/api/changestate', obj);
 };
+   userFactory.deleteJob = function(obj) {
+        return $http.delete('/api/deletejob/'+ obj);
+};
+
+
 	return userFactory;
 })
 

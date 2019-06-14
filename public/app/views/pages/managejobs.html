@@ -22,14 +22,14 @@
 
 <!-- Content
 ================================================== -->
-<div class="container">
+<div class="container" ng-controller="mainCtrl">
 	
 	<!-- Table -->
 	<div class="sixteen columns">
 
 		<p class="margin-bottom-25">Your listings are shown in the table below.</p>
 
-		<table class="manage-table responsive-table">
+		<table class="manage-table responsive-table" id="table">
 
 			<tr>
 				<th><i class="fa fa-file-text"></i> Title</th>
@@ -38,19 +38,7 @@
 				<th></th>
 			</tr>
 					
-			<!-- Item #1 -->
-			<!-- <tr>
-				<td class="title"><a href="#">Sport Leader <span class="pending">(Pending Approval)</span></a></td>
-				<td class="centered">-</td>
-				<td>September 30, 2018</td>
-				<td>October 10, 2018</td>
-				<td class="centered">-</td>
-				<td class="action">
-					<a href="#" class="delete"><i class="fa fa-remove"></i> Delete</a>
-				</td>
-			</tr> -->
-					
-			<!-- Item #2 -->
+	
 			<tr ng-repeat="x in management.jobs">
 				<td class="title"><a href="#">{{x.jobtitle}}</a></td>
 
@@ -77,6 +65,8 @@
 
 		<br>
 		<a href="" ng-click="gotojob()" class="button">Add Job</a>
+	<button export-to-csv>Download</button>
+
 
 	</div>
 
@@ -91,3 +81,16 @@
 
 
 </body>
+<script src="assets/js/jquery.table2excel.js"></script>
+<script type="text/javascript"
+>
+	
+$('btnExport').click(function(){
+	$('.table').table2excel({
+		exclude:".noEx1",
+		name:"D",
+		filename:"S"
+	})
+})
+</script>
+

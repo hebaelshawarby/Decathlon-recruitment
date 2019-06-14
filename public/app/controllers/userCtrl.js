@@ -1,4 +1,4 @@
-angular.module('userController',['userServices','fileModelDirective','uploadFileService'])
+angular.module('userController',['userServices','fileModelDirective','uploadFileService','export'])
 .controller('regCtrl',function($http,$scope,User,uploadFile){
 	$scope.file={};
 	this.regUser=function(regData){

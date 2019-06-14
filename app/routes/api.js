@@ -3,9 +3,24 @@ var Applicant= require('../models/applicant');
 var Job=require('../models/job');
 var jwt = require('jsonwebtoken');
 var secret= 'harrypotter';
+var nodemailer = require('nodemailer'); // Import Nodemailer Package
+var sgTransport = require('nodemailer-sendgrid-transport');
 
 
 module.exports = function(router){
+
+
+var options={
+	auth:{
+		api_user:'hebaelshawarby',
+		api_key:'Heba2k6991'
+	}
+}
+
+var client = nodemailer.createTransport(sgTransport(options));
+
+
+
 	router.post('/users',function(req,res){
 	var user= new User();
 	user.fullname=req.body.fullname;
@@ -56,6 +71,17 @@ module.exports = function(router){
 		}
 		else
 		{
+			var email = {
+						from: 'Localhost Staff, staff@localhost.com',
+						to: 'heba.shawarby2@gmail.com',
+						subject: 'Localhost Activation Link',
+						text: 'Hello ' + user.name + ', thank you for registering at localhost.com. Please click on the following link to complete your activation: http://localhost:8080/activate/' + user.temporarytoken,
+						html: 'Hello<strong> ' + user.name + '</strong>,<br><br>Thank you for registering at localhost.com. Please click on the link below to complete your activation:<br><br><a href="http://localhost:8080/activate/' + user.temporarytoken + '">http://localhost:8080/activate/</a>'
+					};
+					// Function to send e-mail to the user
+					client.sendMail(email, function(err, info) {
+						if (err) console.log(err); // If error with sending e-mail, log to console/terminal
+					});
 		
 			res.json({success: true,message:'saved'});
 		}
@@ -367,7 +393,7 @@ router.get('/getjobs',function(req,res){
 		if(err) res.json({success: false,err:err});
 		else
 
-		res.json({success:true,jobs:apps});
+		res.json({success:true,jobs:apps,permission:user.permission});
 		
 	})
 			}
@@ -440,15 +466,412 @@ router.post('/jobapplicants',function(req,res){
 })
 
 
+ //admin delete job
+
+
+ router.delete('/deletejob/:ids',function(req,res){
+ 	var deletedjob=req.params.ids;
+	User.findOne({fullname:req.decoded.fullname},function(err,user){
+		if(err) throw err;
+		if(!user)
+			res.json({success:false,message:'no user'});
+		else if(user.permission!=='admin'){
+
+res.json({success:false,message:'not authorized '});
+		}else
+			
+			{	
+
+				Job.findByIdAndRemove(deletedjob,function(err,apps){
+		if(err) 
+
+			res.json({success: false,err:err});
+		else
+
+		res.json({success:true});
+		
+	})
+			}
+			
+			
+	})
+		
+	
+})
+
+
+// admin change status
+
+router.put('/putstatus',function(req,res){
+	var newstatus=req.body.status;
+	var applicantid=req.body._id;
+	User.findOne({fullname:req.decoded.fullname},function(err,user){
+		if(err) throw err;
+		if(!user)
+			res.json({success:false,message:'no user'});
+		else
+			
+			{
+
+				Applicant.findOne({_id:applicantid},function(err,app){
+					if(err)
+						throw err;
+					if(!app){
+						res.json({success:false,message:'no applicant found'})
+					}else{
+						app.status=newstatus;
+						app.save(function(err){
+							if(err){
+								console.log(err)
+							}else{
+								if(newstatus==='rejected'){
+									var email = {
+						from: 'Decathlon Egypt Team, careers@decathlon.com',
+						to: 'heba.shawarby2@gmail.com',
+						subject: 'Application Status',
+						text: 'Hello ' + app.fullname + ', thank you for your interest in Decathlon Egypt. Sorry You are rejected',
+						html: 'Hello<strong> ' + app.fullname + '</strong>,<br><br>thank you for your interest in Decathlon Egypt. Sorry You are rejected<br><br>'
+					};
+					// Function to send e-mail to the user
+					client.sendMail(email, function(err, info) {
+						if (err) console.log(err); // If error with sending e-mail, log to console/terminal
+					});
+								}
+								if(newstatus==='hiredandsendemail'){
+									var email = {
+						from: 'Decathlon Egypt Team, careers@decathlon.com',
+						to: 'heba.shawarby2@gmail.com',
+						subject: 'Application Status',
+						text: 'Hello ' + app.fullname + ', thank you for your interest in Decathlon Egypt. Congratulation you are hired',
+						html: 'Hello<strong> ' + app.fullname + '</strong>,<br><br>thank you for your interest in Decathlon Egypt.Congratulation you are hired<br><br>'
+					};
+					// Function to send e-mail to the user
+					client.sendMail(email, function(err, info) {
+						if (err) console.log(err); // If error with sending e-mail, log to console/terminal
+					});
+						
+								}
+								res.json({success:true,message:'status has been updated'})
+							}
+						})
+					}
+				})
+				
+
+			}
+			
+			
+	})
+		
+})
+ 
+ //admin add note
+
+
+router.put('/putnote',function(req,res){
+	var newnote=req.body.note;
+	var applicantid=req.body._id;
+	User.findOne({fullname:req.decoded.fullname},function(err,user){
+		if(err) throw err;
+		if(!user)
+			res.json({success:false,message:'no user'});
+		else
+			
+			{
+
+				Applicant.findOne({_id:applicantid},function(err,app){
+					if(err)
+						throw err;
+					if(!app){
+						res.json({success:false,message:'no applicant found'})
+					}else{
+						app.note=newnote;
+						app.save(function(err){
+							if(err){
+								console.log(err)
+							}else{
+								
+								res.json({success:true,message:'note has been updated'})
+							}
+						})
+					}
+				})
+				
+
+			}
+			
+			
+	})
+		
+})
 
 
 
+// admin edit job
 
 
+ router.put('/editjob', function(req, res) {
+        var jobid = req.body._id; // Assign _id from user to be editted to a variable
+        if (req.body.jobtitle) var jobtitle = req.body.jobtitle; // Check if a change to name was requested
+        if (req.body.sport) var sport = req.body.sport; // Check if a change to username was requested
+        if (req.body.location) var location = req.body.location; // Check if a change to e-mail was requested
+        if (req.body.jobtype) var jobtype = req.body.jobtype; // Check if a change to permission was requested
+        if (req.body.category) var category = req.body.category; // Check if a change to name was requested
+        if (req.body.tags) var tags = req.body.tags; // Check if a change to username was requested
+        if (req.body.description) var description = req.body.description; // Check if a change to e-mail was requested
+        if (req.body.duedate) var duedate = req.body.duedate; 
+        if (req.body.stared) var stared = req.body.stared; // Check if a change to permission was requested
 
 
+        // Look for logged in user in database to check if have appropriate access
+        User.findOne({ fullname: req.decoded.fullname }, function(err, mainUser) {
+            if (err) throw err; // Throw err if cannot connnect
+            // Check if logged in user is found in database
+            if (!mainUser) {
+                res.json({ success: false, message: "no user found" }); // Return erro
+            } else {
+                // Check if a change to name was requested
+                if (jobtitle) {
+                    // Check if person making changes has appropriate access
+                    if (mainUser.permission === 'admin' || mainUser.permission === 'moderator') {
+                        // Look for user in database
+                        Job.findOne({ _id: jobid }, function(err, job) {
+                            if (err) throw err; // Throw error if cannot connect
+                            // Check if user is in database
+                            if (!job) {
+                                res.json({ success: false, message: 'No job found' }); // Return error
+                            } else {
+                                job.jobtitle = jobtitle; // Assign new name to user in database
+                                // Save changes
+                                job.save(function(err) {
+                                    if (err) {
+                                        console.log(err); // Log any errors to the console
+                                    } else {
+                                        res.json({ success: true, message: 'jobtitle has been updated!' }); // Return success message
+                                    }
+                                });
+                            }
+                        });
+                    } else {
+                        res.json({ success: false, message: 'Insufficient Permissions' }); // Return error
+                    }
+                }
+
+                // Check if a change to username was requested
+                if (sport) {
+                    // Check if person making changes has appropriate access
+                    if (mainUser.permission === 'admin' || mainUser.permission === 'moderator') {
+                        // Look for user in database
+                        Job.findOne({ _id: jobid }, function(err, job) {
+                            if (err) throw err; // Throw error if cannot connect
+                            // Check if user is in database
+                            if (!job) {
+                                res.json({ success: false, message: 'No job found' }); // Return error
+                            } else {
+                                job.sport = sport; // Assign new name to user in database
+                                // Save changes
+                                job.save(function(err) {
+                                    if (err) {
+                                        console.log(err); // Log any errors to the console
+                                    } else {
+                                        res.json({ success: true, message: 'sport has been updated!' }); // Return success message
+                                    }
+                                });
+                            }
+                        });
+                    } else {
+                        res.json({ success: false, message: 'Insufficient Permissions' }); // Return error
+                    }
+                }
+
+                // Check if change to e-mail was requested
+                if (location) {
+                    // Check if person making changes has appropriate access
+                    if (mainUser.permission === 'admin' || mainUser.permission === 'moderator') {
+                        // Look for user in database
+                        Job.findOne({ _id: jobid }, function(err, job) {
+                            if (err) throw err; // Throw error if cannot connect
+                            // Check if user is in database
+                            if (!job) {
+                                res.json({ success: false, message: 'No job found' }); // Return error
+                            } else {
+                                job.location = location; // Assign new name to user in database
+                                // Save changes
+                                job.save(function(err) {
+                                    if (err) {
+                                        console.log(err); // Log any errors to the console
+                                    } else {
+                                        res.json({ success: true, message: 'location has been updated!' }); // Return success message
+                                    }
+                                });
+                            }
+                        });
+                    } else {
+                        res.json({ success: false, message: 'Insufficient Permissions' }); // Return error
+                    }
+                }
+
+                 if (jobtype) {
+                    // Check if person making changes has appropriate access
+                    if (mainUser.permission === 'admin' || mainUser.permission === 'moderator') {
+                        // Look for user in database
+                        Job.findOne({ _id: jobid }, function(err, job) {
+                            if (err) throw err; // Throw error if cannot connect
+                            // Check if user is in database
+                            if (!job) {
+                                res.json({ success: false, message: 'No job found' }); // Return error
+                            } else {
+                                job.jobtype = jobtype; // Assign new name to user in database
+                                // Save changes
+                                job.save(function(err) {
+                                    if (err) {
+                                        console.log(err); // Log any errors to the console
+                                    } else {
+                                        res.json({ success: true, message: 'jobtype has been updated!' }); // Return success message
+                                    }
+                                });
+                            }
+                        });
+                    } else {
+                        res.json({ success: false, message: 'Insufficient Permissions' }); // Return error
+                    }
+                }
 
 
+                 if (category) {
+                    // Check if person making changes has appropriate access
+                    if (mainUser.permission === 'admin' || mainUser.permission === 'moderator') {
+                        // Look for user in database
+                        Job.findOne({ _id: jobid }, function(err, job) {
+                            if (err) throw err; // Throw error if cannot connect
+                            // Check if user is in database
+                            if (!job) {
+                                res.json({ success: false, message: 'No job found' }); // Return error
+                            } else {
+                                job.category = category; // Assign new name to user in database
+                                // Save changes
+                                job.save(function(err) {
+                                    if (err) {
+                                        console.log(err); // Log any errors to the console
+                                    } else {
+                                        res.json({ success: true, message: 'category has been updated!' }); // Return success message
+                                    }
+                                });
+                            }
+                        });
+                    } else {
+                        res.json({ success: false, message: 'Insufficient Permissions' }); // Return error
+                    }
+                }
+
+                if (tags) {
+                    // Check if person making changes has appropriate access
+                    if (mainUser.permission === 'admin' || mainUser.permission === 'moderator') {
+                        // Look for user in database
+                        Job.findOne({ _id: jobid }, function(err, job) {
+                            if (err) throw err; // Throw error if cannot connect
+                            // Check if user is in database
+                            if (!job) {
+                                res.json({ success: false, message: 'No job found' }); // Return error
+                            } else {
+                                job.tags = tags; // Assign new name to user in database
+                                // Save changes
+                                job.save(function(err) {
+                                    if (err) {
+                                        console.log(err); // Log any errors to the console
+                                    } else {
+                                        res.json({ success: true, message: 'tags has been updated!' }); // Return success message
+                                    }
+                                });
+                            }
+                        });
+                    } else {
+                        res.json({ success: false, message: 'Insufficient Permissions' }); // Return error
+                    }
+                }
+
+                    if (description) {
+                    // Check if person making changes has appropriate access
+                    if (mainUser.permission === 'admin' || mainUser.permission === 'moderator') {
+                        // Look for user in database
+                        Job.findOne({ _id: jobid }, function(err, job) {
+                            if (err) throw err; // Throw error if cannot connect
+                            // Check if user is in database
+                            if (!job) {
+                                res.json({ success: false, message: 'No job found' }); // Return error
+                            } else {
+                                job.description = description; // Assign new name to user in database
+                                // Save changes
+                                job.save(function(err) {
+                                    if (err) {
+                                        console.log(err); // Log any errors to the console
+                                    } else {
+                                        res.json({ success: true, message: 'description has been updated!' }); // Return success message
+                                    }
+                                });
+                            }
+                        });
+                    } else {
+                        res.json({ success: false, message: 'Insufficient Permissions' }); // Return error
+                    }
+                }
+
+
+                    if (duedate) {
+                    // Check if person making changes has appropriate access
+                    if (mainUser.permission === 'admin' || mainUser.permission === 'moderator') {
+                        // Look for user in database
+                        Job.findOne({ _id: jobid }, function(err, job) {
+                            if (err) throw err; // Throw error if cannot connect
+                            // Check if user is in database
+                            if (!job) {
+                                res.json({ success: false, message: 'No job found' }); // Return error
+                            } else {
+                                job.duedate = duedate; // Assign new name to user in database
+                                // Save changes
+                                job.save(function(err) {
+                                    if (err) {
+                                        console.log(err); // Log any errors to the console
+                                    } else {
+                                        res.json({ success: true, message: 'duedate has been updated!' }); // Return success message
+                                    }
+                                });
+                            }
+                        });
+                    } else {
+                        res.json({ success: false, message: 'Insufficient Permissions' }); // Return error
+                    }
+                }
+
+
+                if (stared) {
+                    // Check if person making changes has appropriate access
+                    if (mainUser.permission === 'admin' || mainUser.permission === 'moderator') {
+                        // Look for user in database
+                        Job.findOne({ _id: jobid }, function(err, job) {
+                            if (err) throw err; // Throw error if cannot connect
+                            // Check if user is in database
+                            if (!job) {
+                                res.json({ success: false, message: 'No job found' }); // Return error
+                            } else {
+                                job.stared = stared; // Assign new name to user in database
+                                // Save changes
+                                job.save(function(err) {
+                                    if (err) {
+                                        console.log(err); // Log any errors to the console
+                                    } else {
+                                        res.json({ success: true, message: 'stared has been updated!' }); // Return success message
+                                    }
+                                });
+                            }
+                        });
+                    } else {
+                        res.json({ success: false, message: 'Insufficient Permissions' }); // Return error
+                      }
+                }
+            }
+        });
+    });
 
 
 

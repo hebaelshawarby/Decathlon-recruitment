@@ -34,6 +34,12 @@ var applicantSchema = new Schema({
   },
   sport:{
   	type:String
+  },
+  status:{
+  	type:String
+  },
+  note:{
+  	type:String
   }
 });
 

@@ -5,7 +5,7 @@ var jobSchema = new Schema({
         type:String,
         required: true
     },
-    Sport:{
+    sport:{
         type:String
             },
     location:{

@@ -10,7 +10,7 @@
 
 <!-- Titlebar
 ================================================== -->
-<div id="titlebar">
+<div id="titlebar" style="background-image: url(../assets/images/4banner.jpg)">
 	<div class="container">
 		<div class="ten columns">
 			<span>We found {{mainCtrl.jobLength}} jobs matching:</span>
@@ -24,15 +24,15 @@
 	</div>
 </div>
 
-
-<!-- Content
+<div  style="background-image: url(../assets/images/4banner.jpg)"><!-- Content
 ================================================== -->
 <div class="container">
+	<div class="row">
 	<!-- Recent Jobs -->
-	<div class="eleven columns">
+	<div class="col-md-8">
 	<div class="padding-right">
-
-		<div class="listings-container" ng-repeat="x in mainCtrl.jobs">
+ 
+		<div class="listings-container" ng-repeat="x in mainCtrl.jobs" style="background-color: white">
 			
 			<!-- Listing -->
 			<a href="" ng-click="getOneJob(x)"  class="listing {{x.jobtype}}">
@@ -176,7 +176,7 @@
 
 
 	<!-- Widgets -->
-	<div class="five columns">
+	<div class="col-md-4">
 
 		<!-- Sort by -->
 		<div class="widget">
@@ -263,7 +263,8 @@
 
 		</div>
  -->
-
+</div>
+</div>
 
 	</div>
 	<!-- Widgets / End -->
