@@ -28,11 +28,11 @@
 <!-- Titlebar
 ================================================== -->
 <br>
-<div id="titlebar" >
+<div id="titlebar" style="  	background-image: url('/assets/images/team1.png');height: 400px; z-index: -1" >
 	<div class="container ">
 		<div class="ten columns">
-			<span><a href="">{{jobcategory}}</a></span>
-			<h2>{{jobtitle}} <span class="full-time">{{jobtype}}</span></h2>
+			<span style="color: white"> <a href="">{{jobcategory}}</a></span>
+			<h2 style="color: white;font-size: 70px">{{jobtitle}} <span  class="full-time">{{jobtype}}</span></h2>
 		</div>
 
 		<!-- <div class="six columns">
@@ -46,21 +46,29 @@
 <!-- Content
 ================================================== -->
 <div class="container">
+	<div class="row">
+		<div class="col-md-8">
+			
 	
 	<!-- Recent Jobs -->
-	<div class="eleven columns">
+	<div class="">
 	<div class="padding-right">
 		
 		<!-- Company Info -->
 		<div class="company-info">
-			<img src="assets/images/company-logo.png" alt="">
+			<img src="assets/images/icon.png" alt="">
 			<div class="content">
-				<h4>{{joblocation}}</h4>
+				<h4>{{jobtitle}}</h4>
+				<h4>Location: {{joblocation}}</h4>
+				<h4>s</h4>
+
+
 				<!-- <span><a href="#"><i class="fa fa-link"></i> Website</a></span>
 				<span><a href="#"><i class="fa fa-twitter"></i> @kingrestaurants</a></span> -->
 			</div>
 			<div class="clearfix"></div>
 		</div>
+			
 
 
 		<p style=" word-wrap: break-word;" >
@@ -68,39 +76,45 @@
 		</p>
 
 		<br>
-		<p>The <strong>Customer Service Specialist</strong> will have responsibilities that include:</p>
+		<p> <strong>My Decathlon</strong> Responsibilities include:</p>
 
 		<ul class="list-1">
-			<li>Executing the Food Service program, including preparing and presenting our wonderful food offerings
-			to hungry customers on the go!nsjndjksandsadjaksndasnjdnsandjskandjsanjdnsajkdn
+			<li>I build my Local Sports Project to make my sport accessible to as many as sport users in my catchment.
 			</li>
-			<li>Greeting customers in a friendly manner and suggestive selling and sampling items to help increase sales.</li>
-			<li>Keeping our Store food area looking terrific and ready for our valued customers by managing product 
-			inventory, stocking, cleaning, etc.</li>
-			<li>We’re looking for associates who enjoy interacting with people and working in a fast-paced environment!</li>
+			<li>I manage over all Omni business for my sport</li>
+			<li> I interact with like-minded sport users and customers with the objective of satisfy or satisfy user</li>
+			<li> I am accountable for merchandising and stock of my sport territory.</li>
+			<li> I update my planner including events, workshops and leaves.</li>
+			<li>I will guarantee the result of my economic performance with right forecasting and analysis of the results, I say, I do.</li>
 		</ul>
 		
 		<br>
 
-		<h4 class="margin-bottom-10">Job Requirment</h4>
+		<h4 class="margin-bottom-10">Who am I?</h4>
 
 		<ul class="list-1">
-			<li>Excellent customer service skills, communication skills, and a happy, smiling attitude are essential.</li>
-			<li>Must be available to work required shifts including weekends, evenings and holidays.</li>
-			<li>Must be able to perform repeated bending, standing and reaching.</li>
-			<li> Must be able to occasionally lift up to 50 pounds</li>
+			<li>I am humble and honest.</li>
+			<li>I am motivated by Decathlon vision and share its values vitality & responsibility.</li>
+			<li>I am a team player.</li>
+			<li>I am challenge oriented.</li>
+			<li>I am cost conscious.</li>
+			<li>I am autonomous to take decisions myself.</li>
+			<li>I am versatile & can multitask.</li>
+			<li>I am responsive to the needs of the company and my colleagues.</li>
 		</ul>
 
 	</div>
 	</div>
-
-
+	</div>
+	
 	<!-- Widgets -->
+		
+	<div class="col-md-4">
 	<div class="five columns">
 
 		<!-- Sort by -->
 		<div class="widget">
-			<h4>Overview</h4>
+			<h4 style="font-size: 55px;color: #0082C3">APPLY NOW!</h4>
 
 			
 				
@@ -111,6 +125,7 @@
 							<input type="text" placeholder="Full Name" value="" ng-model="regData.fullname"/>
 							<input type="text" placeholder="Email Address" value="" ng-model="regData.email" />
 							<input type="text" placeholder="Phone" value="" ng-model="regData.phone" />
+							<input type="text" placeholder="Sport" value="" ng-model="regData.sport" />
 							<textarea placeholder="Your message / cover letter sent to the employer" ng-model="regData.description"></textarea>
 
 							<!-- Upload CV -->
@@ -143,6 +158,7 @@
 	</div>
 	<!-- Widgets / End -->
 
+	</div>
 
 </div>
 

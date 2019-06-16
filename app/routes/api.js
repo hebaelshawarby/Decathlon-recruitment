@@ -10,6 +10,65 @@ var sgTransport = require('nodemailer-sendgrid-transport');
 module.exports = function(router){
 
 
+
+
+	router.get('/getjobs',function(req,res){
+	
+				Job.find({},function(err,apps){
+		if(err) res.json({success: false,err:err});
+		else
+
+		res.json({success:true,jobs:apps});
+		
+	})
+			})
+			
+	
+
+// get recent jobs
+
+router.get('/getrecentjobs',function(req,res){
+		
+				Job.find({},function(err,apps){
+		if(err) res.json({success: false,err:err});
+		else
+			recent=[];
+		for(var i=0; i<4;i++){
+			recent.push(apps[apps.length-1-i])
+			
+
+		}
+
+		res.json({success:true,jobs:recent});
+		
+	})
+
+})
+
+
+// get high priority jobs
+
+router.get('/gethighpriority',function(req,res){
+	
+		
+				Job.find({stared:"high"},function(err,apps){
+		if(err) res.json({success: false,err:err});
+		else
+		
+		res.json({success:true,jobs:apps});
+		
+	})
+			
+			
+			
+	
+		
+	
+})
+
+
+
+
 var options={
 	auth:{
 		api_user:'hebaelshawarby',
@@ -136,6 +195,7 @@ router.post('/postjob',function(req,res){
 	job.category=req.body.category;
 	job.date=req.body.date;
 	job.tags=req.body.tags;
+	job.stared=req.body.stared;
 	console.log(job)
 	if(req.body.jobtitle==null||req.body.jobtitle=='')
 	{
@@ -381,28 +441,7 @@ router.get('/management',function(req,res){
 // 					ADMIN GET ALL JOBS
 
 
-router.get('/getjobs',function(req,res){
-	User.findOne({fullname:req.decoded.fullname},function(err,user){
-		if(err) throw err;
-		if(!user)
-			res.json({success:false,message:'no user'});
-		else
-			
-			{
-				Job.find({},function(err,apps){
-		if(err) res.json({success: false,err:err});
-		else
 
-		res.json({success:true,jobs:apps,permission:user.permission});
-		
-	})
-			}
-			
-			
-	})
-		
-	
-})
 
 //			GET ALL APPICANTS OF SPECIFIC JOB
 

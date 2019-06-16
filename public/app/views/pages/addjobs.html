@@ -57,10 +57,10 @@
 
 			<div class="form">
 				<h5>Posting Priority</h5>
-				<select data-placeholder="Full-Time" >
-					<option value="Full-Time">High Priority</option>
-					<option value="Part-Time">Normal</option>
-					<option value="Internship">Low</option>
+				<select data-placeholder="Full-Time" ng-model="data.stared">
+					<option value="high">High Priority</option>
+					<option value="normal">Normal</option>
+					<option value="low">Low</option>
 				</select>
 			</div>
 
@@ -78,6 +78,28 @@
 						<option value="Finance">Finance</option>
 						<option value="Communication">Communication</option>
 						<option value="Ecommerce">Ecommerce</option>
+					</select>
+				</div>
+			</div>
+
+				<div class="form">
+				<div class="select">
+					<h5>Sport</h5>
+					<select data-placeholder="Choose Categories"  ng-model="data.sport" >
+						<option value="trecking">trecking</option>
+						<option value="running">running</option>
+						<option value="gym">gym</option>
+						<option value="football">football</option>
+						<option value="skateboarding">skateboarding</option>
+						<option value="cycling">cycling</option>
+						<option value="cricket">cricket</option>
+						<option value="swimming">swimming</option>
+						<option value="volleyball">volleyball</option>
+						<option value="badminton">badminton</option>
+						<option value="americanfootball">american football</option>
+						<option value="archery">archery</option>
+						<option value="backetball">backetball</option>
+						<option value="boxing">boxing</option>
 					</select>
 				</div>
 			</div>

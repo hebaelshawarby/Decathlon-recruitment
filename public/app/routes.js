@@ -3,14 +3,15 @@ app=angular.module('appRoutes',['ngRoute'])
 	$routeProvider
 	.when('/',{
 		templateUrl:'app/views/pages/home.html',
-				controller:'mainCtrl',
-		controllerAs:'mainCtrl'
+		controller:'mainCtrl',
+		controllerAs:'mainCtrl',
+
 	})
 	.when('/jobPage',{
 		templateUrl:'app/views/pages/jobpage.html',
 		controller:'mainCtrl',
 		controllerAs:'mainCtrl'
-	})
+			})
 	.when('/jobs',{
 		templateUrl:'app/views/pages/browsejobs.html',
 		controller:'mainCtrl',

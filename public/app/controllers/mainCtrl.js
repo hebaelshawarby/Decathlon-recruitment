@@ -59,6 +59,17 @@ User.getJobs().then(function(data){
   console.log(app.jobLength)
 })
 
+app.recentjob='';
+User.getrecentjobs().then(function(data){
+app.recentjob=data.data.jobs;
+})
+
+
+app.highjob='';
+User.gethighpriority().then(function(data){
+app.highjob=data.data.jobs;
+})
+
 $scope.getOneJob=function(data){
 	console.log(data)
 	app.jobId=data

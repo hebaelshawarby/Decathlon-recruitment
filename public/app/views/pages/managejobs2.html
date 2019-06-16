@@ -67,10 +67,10 @@
       <td>{{x.category}}</td>
       <td>
         <a href="/editjob/{{x._id}}">
-          <button type="button" ng-show="management.editAccess" class="btn btn-primary">Edit </button>
+          <button type="button"  class="btn btn-primary">Edit </button>
         </a>
         <a href="">
-          <button type="button"  ng-click="management.deleteJob(x._id)" class="btn btn-danger" ng-show="management.deleteAccess" >delete </button>
+          <button type="button"  ng-click="management.deleteJob(x._id)" class="btn btn-danger" >delete </button>
         </a>
       </td>
     </tr>
@@ -82,9 +82,7 @@
 
 </table>
 <!--Table-->
- <div class="col-md-12 text-center">
-      <ul class="pagination pagination-lg pager" id="myPager"></ul>
-      </div>
+ 
 
 </div>
 
@@ -94,9 +92,3 @@
 
 
 </div>
-<script type="text/javascript">
-  $(document).ready(function () {
-  $('#myPager').DataTable();
-  $('.dataTables_length').addClass('bs-select');
-});
-</script>

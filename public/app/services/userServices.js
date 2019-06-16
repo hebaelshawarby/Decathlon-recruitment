@@ -27,6 +27,13 @@ angular.module('userServices',[])
 	userFactory.getJobs=function(){
 		return $http.get('/api/getjobs');
 	}
+	userFactory.getrecentjobs=function(){
+		return $http.get('/api/getrecentjobs');
+	}
+	userFactory.gethighpriority=function(){
+		return $http.get('/api/gethighpriority');
+	}
+	
 	userFactory.createModerator=function(data){
 		return $http.post('/api/registerModerator' ,data);
 		

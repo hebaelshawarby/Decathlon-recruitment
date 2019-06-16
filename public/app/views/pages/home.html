@@ -11,7 +11,11 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+
 </style>
+
 <body ng-controller="mainCtrl">
 <div id="wrapper">
 
@@ -79,7 +83,7 @@
     <a class="nav-link" id="department-tab" data-toggle="tab" data-target="#department" role="tab">Role By Department</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" id="city-tab" data-toggle="tab" data-target="#city" role="tab" >Role By City</a>
+    <a class="nav-link" id="city-tab" data-toggle="tab" data-target="#city" role="tab" >Role By Location</a>
   </li>
 </ul>
 		<!-- Tabs Content -->
@@ -89,86 +93,94 @@
 				
 				<!-- Box -->
 				<a href="" ng-click="division('all')" class="category-small-box">
-					<i class="ln ln-icon-Globe"></i>
+					<div >
+					<img  src="https://s3.ap-south-1.amazonaws.com/decathlon-recruitment-staging/public/images/sport/1/decathlon_recruitment_trekking.png" >
+					</div>
 					<h4>TRECKING</h4>
-					<span>32</span>
 				</a>
 
 				<!-- Box -->
 				<a href="" ng-click="division('retail')" class="category-small-box">
-					<i class="ln  ln-icon-Business-ManWoman"></i>
+					<img src="https://s3.ap-south-1.amazonaws.com/decathlon-recruitment-staging/public/images/sport/3/decathlon_recruitment_running.png">
 					<h4>RUNNING</h4>
-					<span>76</span>
 				</a>
 
 				<!-- Box -->
 				<a href="" ng-click="division('communication')" class="category-small-box">
-					<i class="ln  ln-icon-Computer"></i>
+					<img src="https://s3.ap-south-1.amazonaws.com/decathlon-recruitment-staging/public/images/sport/6/decathlon_recruitment_gym.png">
 					<h4>GYM</h4>
-					<span>31</span>
 				</a>
 
 				<!-- Box -->
 				<a href="" ng-click="division('design')" class="category-small-box">
-					<i class="ln  ln-icon-Edit"></i>
+
+					<img src="https://s3.ap-south-1.amazonaws.com/decathlon-recruitment-staging/public/images/sport/8/decathlon_recruitment_football.png">
 					<h4>FOOTBALL</h4>
-					<span>76</span>
 				</a>
 
 				<!-- Box -->
 				<a href="" ng-click="division('ecommerce')"class="category-small-box">
 					<!-- <i class="ln ln-icon-Medical-Sign"></i> -->
-					<i class="ln ln-icon-Add-Cart"></i>
+				<img src="https://s3.ap-south-1.amazonaws.com/decathlon-recruitment-staging/public/images/sport/10/decathlon_recruitment_skateboarding.png">
 					<h4>SKATEBOARDING</h4>
-					<span>32</span>
 				</a>
 
 				<!-- Box -->
-				<a href="" ng-click="division('finance')" class="category-small-box">
-					<i class="ln ln-icon-Money-Bag"></i>
+				<a href="" ng-click="division('finance')" class="category-small-box owl-item active">
+					<img src="https://s3.ap-south-1.amazonaws.com/decathlon-recruitment-staging/public/images/sport/2/decathlon_recruitment_road_bike.png">
 					<h4>CYCLING</h4>
-					<span>67</span>
 				</a>
 
 				<!-- Box -->
-				<a href="" ng-click="division('real estate')" class="category-small-box">
-					<i class="ln ln-icon-Building"></i>
+				<a href="" ng-click="division('real estate')" class="category-small-box owl-item active">
+					<img src="https://s3.ap-south-1.amazonaws.com/decathlon-recruitment-staging/public/images/sport/4/decathlon_recruitment_cricket.png">
 					<h4>CRICKET</h4>
-					<span>45</span>
 				</a>
 
 				<!-- Box -->
-				<a href="" ng-click="division('it')" class="category-small-box">
-					<i class="ln   ln-icon-Laptop-3"></i>
+				<a href="" ng-click="division('it')" class="category-small-box owl-item active" >
+				<img src="https://s3.ap-south-1.amazonaws.com/decathlon-recruitment-staging/public/images/sport/7/decathlon_recruitment_swimming.png">
 					<h4>SWIMMING</h4>
-					<span>96</span>
 				</a>
 
-				<a href="" ng-click="division('production')" class="category-small-box">
-					<i class="ln  ln-icon-Worker"></i>
+				<a href="" ng-click="division('production')" class="category-small-box owl-item">
+					<img src="https://s3.ap-south-1.amazonaws.com/decathlon-recruitment-staging/public/images/sport/9/decathlon_recruitment_volleyball.png">
 					<h4>VOLLEYBALL</h4>
-					<span>96</span>
 				</a>
 
-				<a href=""  ng-click="division('hr')"class="category-small-box">
-					<i class="ln   ln-icon-Paper"></i>
+				<a href=""  ng-click="division('hr')"class="category-small-box owl-item ">
+					<img src="https://s3.ap-south-1.amazonaws.com/decathlon-recruitment-staging/public/images/sport/11/decathlon_recruitment_badminton.png">
 					<h4>BADMINTON</h4>
-					<span>96</span>
 				</a>
 
-				<a href=""  ng-click="division('supply')"class="category-small-box">
-					<i class="ln ln-icon-Car"></i>
+				<a href=""  ng-click="division('supply')"class="category-small-box owl-item">
+					<img src="https://s3.ap-south-1.amazonaws.com/decathlon-recruitment-staging/public/images/sport/12/decathlon_recruitment_american_football.png">
 					<h4>AMERICAN FOOTBALL</h4>
-					<span>96</span>
 				</a>
+				<a href=""  ng-click="division('supply')"class="category-small-box owl-item">
+					<img src="https://s3.ap-south-1.amazonaws.com/decathlon-recruitment-staging/public/images/sport/13/decathlon_recruitment_archery.png">
+					<h4>ARCHERY</h4>
+					</a>
+				<a href=""  ng-click="division('supply')"class="category-small-box owl-item">
+					<img src="https://s3.ap-south-1.amazonaws.com/decathlon-recruitment-staging/public/images/sport/16/decathlon_recruitment_basketball.png">
+					<h4>BASKET BALL</h4>
+				</a>
+				<a href=""  ng-click="division('supply')"class="category-small-box owl-item">
+					<img src="https://s3.ap-south-1.amazonaws.com/decathlon-recruitment-staging/public/images/sport/20/decathlon_recruitment_boxing.png">
+					<h4>BOXING</h4>
+				</a>
+
+				
+
+
 
 
 			</div>
 
 		<div class="clearfix"></div>
 		<div class="margin-top-30"></div>
-
-		<a href="browse-categories.html" class="button centered">Browse All Categories</a>
+		<div class="owl-nav"><button type="button" role="presentation" class="owl-prev disabled">&lt;</button><button type="button" role="presentation" class="owl-next">&gt;</button></div>
+		<a href="browse-categories.html" class="button centered">Browse All Sports</a>
 		<div class="margin-bottom-55"></div>
 
   </div>
@@ -179,77 +191,68 @@
 				
 				<!-- Box -->
 				<a href="" ng-click="division('all')" class="category-small-box">
-					<i class="ln ln-icon-Globe"></i>
+					<img src="https://s3.ap-south-1.amazonaws.com/decathlon-recruitment-staging/public/images/department/11/decathlon_recruitment_user_happiness.png">
 					<h4>ALL Division</h4>
-					<span>32</span>
 				</a>
 
 				<!-- Box -->
 				<a href="" ng-click="division('retail')" class="category-small-box">
-					<i class="ln  ln-icon-Business-ManWoman"></i>
+					<img src="https://s3.ap-south-1.amazonaws.com/decathlon-recruitment-staging/public/images/department/10/decathlon_recruitment_retail.png">
 					<h4>Retail</h4>
-					<span>76</span>
 				</a>
 
 				<!-- Box -->
 				<a href="" ng-click="division('communication')" class="category-small-box">
-					<i class="ln  ln-icon-Computer"></i>
+					<img src="https://s3.ap-south-1.amazonaws.com/decathlon-recruitment-staging/public/images/department/1/decathlon_recruitment_communication_and_design.png">
 					<h4>Communication</h4>
-					<span>31</span>
 				</a>
 
 				<!-- Box -->
 				<a href="" ng-click="division('design')" class="category-small-box">
-					<i class="ln  ln-icon-Edit"></i>
+					<img src="https://s3.ap-south-1.amazonaws.com/decathlon-recruitment-staging/public/images/department/2/decathlon_recruitment_construction.png">
 					<h4>Design</h4>
-					<span>76</span>
 				</a>
 
 				<!-- Box -->
 				<a href="" ng-click="division('ecommerce')"class="category-small-box">
 					<!-- <i class="ln ln-icon-Medical-Sign"></i> -->
-					<i class="ln ln-icon-Add-Cart"></i>
+					<img src="https://s3.ap-south-1.amazonaws.com/decathlon-recruitment-staging/public/images/department/3/decathlon_recruitment_ecommerce.png">
 					<h4>E-commerce</h4>
-					<span>32</span>
 				</a>
 
 				<!-- Box -->
 				<a href="" ng-click="division('finance')" class="category-small-box">
-					<i class="ln ln-icon-Money-Bag"></i>
+					<img src="https://s3.ap-south-1.amazonaws.com/decathlon-recruitment-staging/public/images/department/4/decathlon_recruitment_finance_and_accounts.png">
 					<h4>Finance</h4>
-					<span>67</span>
 				</a>
 
 				<!-- Box -->
 				<a href="" ng-click="division('real estate')" class="category-small-box">
-					<i class="ln ln-icon-Building"></i>
+					<img src="https://s3.ap-south-1.amazonaws.com/decathlon-recruitment-staging/public/images/department/9/decathlon_recruitment_real_state.png">
 					<h4>Real Estate</h4>
-					<span>45</span>
 				</a>
 
 				<!-- Box -->
 				<a href="" ng-click="division('it')" class="category-small-box">
-					<i class="ln   ln-icon-Laptop-3"></i>
+					<img src="https://s3.ap-south-1.amazonaws.com/decathlon-recruitment-staging/public/images/department/5/decathlon_recruitment_it.png">
 					<h4>IT</h4>
-					<span>96</span>
+					
 				</a>
 
 				<a href="" ng-click="division('production')" class="category-small-box">
-					<i class="ln  ln-icon-Worker"></i>
+					<img src="https://s3.ap-south-1.amazonaws.com/decathlon-recruitment-staging/public/images/department/8/decathlon_recruitment_production.png">
 					<h4>Production</h4>
-					<span>96</span>
 				</a>
 
 				<a href=""  ng-click="division('hr')"class="category-small-box">
-					<i class="ln   ln-icon-Paper"></i>
-					<h4>Human Rescources</h4>
-					<span>96</span>
+					<img src="https://s3.ap-south-1.amazonaws.com/decathlon-recruitment-staging/public/images/department/13/decathlon_recruitment_brand_offer_supply.png">
+					<h4>HR</h4>
+				
 				</a>
 
 				<a href=""  ng-click="division('supply')"class="category-small-box">
-					<i class="ln ln-icon-Car"></i>
+					<img src="https://s3.ap-south-1.amazonaws.com/decathlon-recruitment-staging/public/images/department/6/decathlon_recruitment_logistics.png">
 					<h4>Supply/Logistics</h4>
-					<span>96</span>
 				</a>
 
 
@@ -317,33 +320,33 @@
 
 </div>
 
-<div class="container">
+<div class="container" style="padding-top: 30px;">
 	<div class="row">
 	
 	<!-- Recent Jobs -->
 	<div class="col-md-8">
 	<div class="padding-right">
 		<h3 class="margin-bottom-25">Recent Jobs</h3>
-		<div class="listings-container">
+		<div class="listings-container" ng-repeat="x in mainCtrl.recentjob">
 			
 			<!-- Listing -->
-			<a href="job-page-alt.html" class="listing full-time">
+			<a  href="/jobPage#titlebar" ng-click="getOneJob(x)"  class="listing full-time">
 				<div class="listing-logo">
-					<img src="../assets/images/job-list-logo-01.png" alt="">
+					<img src="../assets/images/icon.png" alt="">
 				</div>
 				<div class="listing-title">
-					<h4>Retail Supplier Customs Zone <span class="listing-type">Full-Time</span></h4>
+					<h4>{{x.jobtitle}} <span class="listing-type">{{x.jobtype}}</span></h4>
 					<ul class="listing-icons">
-						<li><i class="ln ln-icon-Management"></i> CFC</li>
-						<li><i class="ln ln-icon-Map2"></i> Cairo</li>
-						<li><i class="ln ln-icon-Money-2"></i> 5000 - 7000</li>
+						<li><i class="ln ln-icon-Management"></i> {{x.category}}</li>
+						<li><i class="ln ln-icon-Map2"></i> {{x.location}}</li>
+						<li><i class="ln ln-icon-Edit"></i>{{x.tags}}</li>
 						<li><div class="listing-date new">new</div></li>
 					</ul>
 				</div>
 			</a>
 			
 			<!-- Listing -->
-			<a href="job-page.html" class="listing part-time">
+			<!-- <a href="job-page.html" class="listing part-time">
 				<div class="listing-logo">
 					<img src="../assets/images/job-list-logo-02.png" alt="">
 				</div>
@@ -356,10 +359,10 @@
 						<li><div class="listing-date">3d ago</div></li>
 					</ul>
 				</div>
-			</a>
+			</a> -->
 
 			<!-- Listing -->
-			<a href="job-page-alt.html" class="listing full-time">
+			<!-- <a href="job-page-alt.html" class="listing full-time">
 				<div class="listing-logo">
 					<img src="../assets/images/job-list-logo-01.png" alt="">
 				</div>
@@ -372,9 +375,9 @@
 					</ul>
 				</div>
 			</a>
-
+ -->
 			<!-- Listing -->
-			<a href="job-page.html" class="listing full-time">
+			<!-- <a href="job-page.html" class="listing full-time">
 				<div class="listing-logo">
 					<img src="../assets/images/job-list-logo-04.png" alt="">
 				</div>
@@ -386,7 +389,7 @@
 						<li><div class="listing-date">4d ago</div></li>
 					</ul>
 				</div>
-			</a>
+			</a> -->
 
 			
 		</div>
@@ -412,20 +415,20 @@
 			<div class="showbiz" data-left="#showbiz_left_1" data-right="#showbiz_right_1" data-play="#showbiz_play_1" >
 				<div class="overflowholder">
 
-					<ul>
+					<ul >
 
-						<li>
+						<li ng-repeat="x in mainCtrl.highjob">
 							<div class="job-spotlight">
-								<a href="#"><h4>Social Media: Advertising Coordinator <span class="part-time">Part-Time</span></h4></a>
-								<span><i class="fa fa-briefcase"></i> CFC</span>
-								<span><i class="fa fa-map-marker"></i>Cairo</span>
-								<span><i class="fa fa-money"></i> 5000-7000</span>
-								<p>As advertising & content coordinator, you will support our social media team in producing high quality social content for a range of media channels.</p>
-								<a href="job-page.html" class="button">Apply For This Job</a>
+								<a href="#"><h4>{{x.jobtitle}} <span class="part-time">{{x.jobtype}}</span></h4></a>
+								<span><i class="fa fa-briefcase"></i>{{x.category}}</span>
+								<span><i class="fa fa-map-marker"></i>{{x.location}}</span>
+								<span><i class="fa fa-money"></i> {{x.tags}}</span>
+								<p>{{x.description}}</p>
+								<a href="/jobPage#titlebar" ng-click="getOneJob(x)"  class="button">Apply For This Job</a>
 							</div>
 						</li>
 
-						<li>
+				<!-- 		<li>
 							<div class="job-spotlight">
 								<a href="#"><h4>Sport Leader  <span class="full-time">Full-Time</span></h4></a>
 								<span><i class="fa fa-briefcase"></i> CFC</span>
@@ -445,7 +448,7 @@
 								<p>As a sport Player, you will be responsible on volleyball and ensuring .........</p>
 								<a href="job-page.html" class="button">Apply For This Job</a>
 							</div>
-						</li>
+						</li> -->
 
 
 					</ul>
