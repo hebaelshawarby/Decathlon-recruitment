@@ -23,7 +23,38 @@ module.exports = function(router){
 	})
 			})
 			
+		router.post('/getjobssport',function(req,res){
+		
+				Job.find({sport:req.body.sport},function(err,apps){
+		if(err) res.json({success: false,err:err});
+		else
+
+		res.json({success:true,jobs:apps});
+		
+	})
+			})
+
+		router.post('/getjoblocation',function(req,res){
+		
+				Job.find({location:req.body.location},function(err,apps){
+		if(err) res.json({success: false,err:err});
+		else
+
+		res.json({success:true,jobs:apps});
+		
+	})
+			})
 	
+	router.post('/getjobscat',function(req,res){
+		
+				Job.find({category:req.body.category},function(err,apps){
+		if(err) res.json({success: false,err:err});
+		else
+
+		res.json({success:true,jobs:apps});
+		
+	})
+			})
 
 // get recent jobs
 
@@ -161,6 +192,7 @@ router.post('/apply',function(req,res){
 	applicant.jobtitle=req.body.jobtitle;
 	applicant.date=req.body.date;
 	applicant.description=req.body.description;
+	applicant.sport=req.body.sport;
 	// if(req.body.fullname==null||req.body.fullname=='')
 	// {
 	// 	res.send('ensure username is provided');
@@ -196,6 +228,7 @@ router.post('/postjob',function(req,res){
 	job.date=req.body.date;
 	job.tags=req.body.tags;
 	job.stared=req.body.stared;
+	job.sport=req.body.sport;
 	console.log(job)
 	if(req.body.jobtitle==null||req.body.jobtitle=='')
 	{
@@ -544,6 +577,7 @@ res.json({success:false,message:'not authorized '});
 router.put('/putstatus',function(req,res){
 	var newstatus=req.body.status;
 	var applicantid=req.body._id;
+	console.log(applicantid)
 	User.findOne({fullname:req.decoded.fullname},function(err,user){
 		if(err) throw err;
 		if(!user)

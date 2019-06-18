@@ -1,4 +1,4 @@
-angular.module('mainController',['userServices','authServices','fileModelDirective','uploadFileService','export'])
+angular.module('mainController',['userServices','authServices','fileModelDirective','uploadFileService','export','ngSanitize', 'ngCsv'])
 .controller('mainCtrl',function(Auth,$location,$timeout,$rootScope,uploadFile,$scope,User,$localstorage,$window){
 	var app=this;
 
@@ -49,6 +49,10 @@ $scope.dm='DIGITAL MARKETER'
 $scope.jobKeyword='no job keyword';
 		 $scope.date = new Date();
 		 console.log($scope.date);
+
+
+
+
 
 app.jobs='';
 app.jobId='';
@@ -102,6 +106,7 @@ $scope.jobdescription=$localstorage.get('jobdescription');
 		application['jobtitle']=$scope.jobtitle;
 		application['date']=new Date();
 		application['description']=regData.description;
+		application['sport']=regData.sport;
 		
 		uploadFile.upload($scope.myfile).then(function(data){
 			console.log(data);
@@ -111,7 +116,11 @@ $scope.jobdescription=$localstorage.get('jobdescription');
 
 		User.create(application).then(function(data){
 			console.log(data);
-			$location.path('/thankyou')
+
+			$location.path('/thankyou');
+		$timeout(function() {
+			$location.path('/');
+		}, 3000);
 
 		});
 			
@@ -121,14 +130,58 @@ $scope.jobdescription=$localstorage.get('jobdescription');
 	}
 
 
+
 // })
 $scope.gotohome=function(){
 	$location.path('/')
 }
-$scope.division=function(data){
-	console.log(data)
-	if(data==='all')
+$scope.division=function(){
+
 	$location.path('/jobs')
+}
+
+
+app.sportjobs='';
+
+app.sportJson={}
+app.sportJson['sport']=$localstorage.get('currentsport');
+User.getjobssport(app.sportJson).then(function(data){
+	app.sportjobs=data.data.jobs
+	console.log(data.data.jobs)
+  // app.sportjobs=data.data.jobs;
+})
+
+$scope.getjobssport=function(data){
+$location.path('/sport')
+$localstorage.set('currentsport',data)
+
+}
+app.locationjobs='';
+
+app.locationJson={}
+app.locationJson['location']=$localstorage.get('currentlocation');
+User.getjoblocation(app.locationJson).then(function(data){
+	app.locationjobs=data.data.jobs
+	console.log(data.data.jobs)
+  // app.sportjobs=data.data.jobs;
+})
+$scope.getjoblocation=function(data){
+$location.path('/location')
+$localstorage.set('currentlocation',data)
+}
+
+app.catjobs='';
+
+app.catJson={}
+app.catJson['category']=$localstorage.get('categ');
+User.getjobscat(app.catJson).then(function(data){
+	app.catjobs=data.data.jobs
+	console.log(data.data.jobs)
+  // app.sportjobs=data.data.jobs;
+})
+$scope.getjobscat=function(data){
+	$location.path('/category')
+$localstorage.set('categ',data)
 }
 $scope.gotojobs=function(){
 	$location.path('/jobs')
@@ -198,7 +251,7 @@ $scope.dataToPresent='';
 		console.log(loginData)
 		Auth.login(loginData).then(function(data){
 			console.log(data);
-			$location.path('/thankyou');
+			$location.path('/management');
 		})
 
 	}

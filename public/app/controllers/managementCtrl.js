@@ -78,6 +78,17 @@ function getJobs() {
 
 
 
+ app.deleteApplicant = function(username) {
+        // Run function to delete a user
+        User.deleteApplicant(username).then(function(data) {
+            // Check if able to delete user
+            if (data.data.success) {
+                getApp(); // Reset users on page
+            } else {
+                app.showMoreError = data.data.message; // Set error message
+            }
+        });
+    };
 
 
 
@@ -99,6 +110,23 @@ function getJobs() {
 
 
 
+$scope.addStatus=function(data,s){
+
+	data["_id"]=s;
+	User.addStatus(data).then(function(d){
+		console.log(d);
+		getApp();
+	})
+}
+
+$scope.addNote=function(data,s){
+
+    data["_id"]=s;
+    User.addNote(data).then(function(d){
+        console.log(d);
+        getApp();
+    })
+}
 
 
 $scope.gotojob=function(){
@@ -114,6 +142,14 @@ app.postJob=function(data){
 
  })
 }
+
+
+
+
+
+
+
+
 app.jobs='';
 app.jobId='';
 User.getJobs().then(function(data){
@@ -131,6 +167,9 @@ User.getJobs().then(function(data){
 // 	}
 	
 // }
+app.MyCSV={};
+function getApp(){
+
 
 User.getApplicants().then(function(data){
  // console.log(data)
@@ -139,8 +178,9 @@ User.getApplicants().then(function(data){
 			app.apps=data.data.apps;
             console.log(app.apps.length)
             app.total=app.apps.length;
+            app.MyCSV =app.apps; 
 
-
+	$localstorage.set('csv',app.apps);
 		}else{
 			app.errorMsg='no permission';
 			app.loading=false;
@@ -152,6 +192,14 @@ User.getApplicants().then(function(data){
 
 	}
 })
+
+}
+getApp();
+
+console.log($scope.MyCSV)
+
+
+
 })
 
 

@@ -33,20 +33,35 @@
 
 			<tr>
 				<th><i class="fa fa-file-text"></i> Title</th>
-				<th><i class="fa fa-calendar"></i> Date Expires</th>
+				<th><i class="fa fa-calendar"></i> Sport</th>
+				<th><i class="fa fa-file-text"></i> Location</th>
+				<th><i class="fa fa-calendar"></i> Type</th>
+				<th><i class="fa fa-calendar"></i> Category</th>
 				<!-- <th><i class="fa fa-user"></i> Applications</th> -->
 				<th></th>
 			</tr>
-					
-	
-			<tr ng-repeat="x in management.jobs">
-				<td class="title"><a href="#">{{x.jobtitle}}</a></td>
+					<div class="widget">
+			<h4>Type Location, sport, category to filter</h4>
+			<form >
+				<input type="text" placeholder="Enter a keyword" value="" ng-model="searchkey"/>
+				
 
-				<td>{{x.date}}</td>
+				
+				<button class="button">Filter</button>
+			</form>
+		</div>
+
+	
+			<tr ng-repeat="x in management.jobs | filter:searchkey">
+				<td class="title"><a href="#" ng-click="getOneJob(x)" >{{x.jobtitle}}</a></td>
+     		    <td>{{x.sport}}</td>
+                <td>{{x.location}}</td>
+                <td>{{x.jobtype}}</td>
+                <td>{{x.category}}</td>
 <!-- 				<td class="centered"><a href="manage-applications.html" class="button">Show (4)</a></td>
  -->				<td class="action">
-					<a href="#"><i class="fa fa-pencil"></i> Edit</a>
-					<a href="#" class="delete"><i class="fa fa-remove"></i> Delete</a>
+					<a href="#"><i class="fa fa-pencil"></i> View Apps</a>
+					<a href=""  ng-click="management.deleteJob(x._id)"class="delete"><i class="fa fa-remove"></i> Delete</a>
 				</td>
 			</tr>	
 
@@ -65,7 +80,6 @@
 
 		<br>
 		<a href="" ng-click="gotojob()" class="button">Add Job</a>
-	<button export-to-csv>Download</button>
 
 
 	</div>
@@ -81,16 +95,4 @@
 
 
 </body>
-<script src="assets/js/jquery.table2excel.js"></script>
-<script type="text/javascript"
->
-	
-$('btnExport').click(function(){
-	$('.table').table2excel({
-		exclude:".noEx1",
-		name:"D",
-		filename:"S"
-	})
-})
-</script>
 

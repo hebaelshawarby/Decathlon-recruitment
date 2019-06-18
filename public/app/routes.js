@@ -17,6 +17,21 @@ app=angular.module('appRoutes',['ngRoute'])
 		controller:'mainCtrl',
 		controllerAs:'mainCtrl'
 	})
+.when('/sport',{
+		templateUrl:'app/views/pages/sport.html',
+		controller:'mainCtrl',
+		controllerAs:'mainCtrl'
+	})
+.when('/category',{
+		templateUrl:'app/views/pages/category.html',
+		controller:'mainCtrl',
+		controllerAs:'mainCtrl'
+	})
+.when('/location',{
+		templateUrl:'app/views/pages/location.html',
+		controller:'mainCtrl',
+		controllerAs:'mainCtrl'
+	})
 	.when('/thankyou',{
 		templateUrl:'app/views/pages/thankyou.html',
 		controller:'mainCtrl',
@@ -43,6 +58,11 @@ app=angular.module('appRoutes',['ngRoute'])
 		controller:'mainCtrl',
 		controllerAs:'mainCtrl'
 	})
+	.when('/test',{
+		templateUrl:'app/views/pages/t.html',
+		controller:'mainCtrl',
+		controllerAs:'mainCtrl'
+	})
 	.when('/login',{
 		templateUrl:'app/views/pages/login.html',
 				controller:'mainCtrl',
@@ -62,7 +82,7 @@ app=angular.module('appRoutes',['ngRoute'])
 		permission:['admin','moderator']
 })
 	.when('/managejobs',{
-		templateUrl:'app/views/pages/managejobs2.html',
+		templateUrl:'app/views/pages/managejobs.html',
 		controller:'managementCtrl',
 		controllerAs:'management',
 		authenticated:true,

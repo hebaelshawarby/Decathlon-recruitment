@@ -36,7 +36,8 @@ var applicantSchema = new Schema({
   	type:String
   },
   status:{
-  	type:String
+  	type:String,
+  	default:'new'
   },
   note:{
   	type:String

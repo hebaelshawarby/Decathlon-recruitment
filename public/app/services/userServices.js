@@ -57,6 +57,18 @@ angular.module('userServices',[])
 	userFactory.getApplicants=function(){
 		return $http.get('/api/management/');
 	}
+	userFactory.jobapplicants=function(d){
+		return $http.post('/api/jobapplicants/',d);
+	}
+	userFactory.getjobssport=function(d){
+		return $http.post('/api/getjobssport',d);
+	}
+	userFactory.getjoblocation=function(d){
+		return $http.post('/api/getjoblocation/',d);
+	}
+	userFactory.getjobscat=function(d){
+		return $http.post('/api/getjobscat/',d);
+	}
 
 
 	userFactory.getModerators=function(){
@@ -76,6 +88,16 @@ angular.module('userServices',[])
    userFactory.deleteJob = function(obj) {
         return $http.delete('/api/deletejob/'+ obj);
 };
+   userFactory.deleteApplicant = function(obj) {
+        return $http.delete('/api/deleteuser/'+ obj);
+};
+   userFactory.addStatus = function(obj) {
+        return $http.put('/api/putstatus',obj);
+};
+   userFactory.addNote = function(obj) {
+        return $http.put('/api/putnote',obj);
+};
+
 
 
 	return userFactory;

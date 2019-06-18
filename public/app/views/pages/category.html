@@ -32,7 +32,7 @@
 	<div class="col-md-8">
 	<div class="padding-right">
  
-		<div class="listings-container" ng-repeat="x in mainCtrl.jobs | filter:searchkey | filter:searchkey1 | filter:searchkey2" style="background-color: white">
+		<div class="listings-container" ng-repeat="x in mainCtrl.catjobs | filter:searchkey | filter:searchkey1 | filter:searchkey2" style="background-color: white">
 			
 			<!-- Listing -->
 			<a href="" ng-click="getOneJob(x)"  class="listing {{x.jobtype}}">

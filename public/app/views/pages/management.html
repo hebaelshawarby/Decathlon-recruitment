@@ -21,6 +21,7 @@
 					<li>You are here:</li>
 					<li><a href="#">Home</a></li>
 					<li>Job Dashboard</li>
+					 <button type="button" class="btn btn-default btncol" ng-csv="management.MyCSV" filename="ss.csv"><span class="glyphicon glyphicon-download-alt">&nbsp;</span>Download CSV</button>
 				</ul>
 			</nav>
 		</div>
@@ -28,16 +29,17 @@
 	</div>
 </div>
 
-
-<!-- Content
+<!--  csv-header="['Employee Id', 'Employee Name', 'Department', 'Designation', 'City', 'Contact Number']"
+ --><!-- Content
 ================================================== -->
 <div class="container">
-	
+
+	 <div exportToCsv export-data="exportData" file-name="{{mainCtrl.fileName1}}"></div>
 	<!-- Table -->
 	<div class="sixteen columns">
 
 		<p class="margin-bottom-25" style="float: left;">The job applications for <strong><a href="#">Sport Leader</a></strong> are listed below.</p>
-		<strong><a href="#" class="download-csv">Download CSV</a></strong>
+		<strong><a href="#" class="download-csv" ng-csv="management.MyCSV" filename="ss.csv">Download CSV</a></strong>
 
 	</div>
 
@@ -119,7 +121,7 @@
 
 <!-- 					<div class="clearfix"></div>
  --><!-- 					<a href="#" class="button margin-top-15">Save</a>
- -->					<a href="#" class="button gray margin-top-15 delete-application">Delete this application</a>
+ -->					<a ng-click="management.deleteApplicant(x._id)" class="button gray margin-top-15 delete-application">Delete this application</a>
 
 <!-- 			    </div>
  -->			    
@@ -142,6 +144,34 @@
 
 					<i>Job Title:</i>
 					<span>{{x.jobtitle}} </span>
+
+					<i>Add Status (current status: {{x.status}})</i>
+					<span>		<div class="form">
+				<div class="select">
+					<h5>Category</h5>
+					<select data-placeholder="Choose Categories"  ng-model="data.status" >
+						<option value="new">New</option>
+						<option value="contacted">contacted</option>
+						<option value="interviewed">Interviewed</option>
+						<option value="hiredandsendemail">Hired - Send Automated Email</option>
+						<option value="hired">Hired - No Email Sent</option>
+						<option value="rejected">Rejected - Send Automated Email</option>
+						<option value="rejectednoemail">rejected</option>
+					</select>
+					<button class="send margin-top-15" ng-click="addStatus(data,x._id)" data-toggle="modal" data-target="#myModal">Add Status</button>
+
+				</div>
+
+			</div>
+		</span>
+						<i>Add Note</i>
+
+					<span>Current Note: {{x.note}} </span>
+			<div class="form">
+				<input class="search-field" type="text" placeholder="New Note" value=""  ng-model="data.note"/>
+				<button class="send margin-top-15" ng-click="addNote(data,x._id)" data-toggle="modal" data-target="#myModal">Add Note</button>
+			</div>
+
 			    </div>
 
 			</div>

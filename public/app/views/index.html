@@ -35,6 +35,8 @@
     <script src="app/controllers/mainCtrl.js"></script>
     <script src="app/controllers/managementCtrl.js"></script>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ng-csv/0.3.6/ng-csv.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-sanitize/1.7.8/angular-sanitize.js"></script>
 
     
 
@@ -57,7 +59,7 @@
 
         <li><a href="/" id="current">Home</a>
           <ul>
-            <li><a href="/" >Careers</a></li>
+            <li><a href="/jobs#titlebar" ng-click="division()"  >Careers</a></li>
             <li><a href="https://www.decathlon.eg">Continue Shopping</a></li>
             
           </ul>
@@ -77,7 +79,7 @@
 
         <li><a href="" id="current">For Applications</a>
           <ul>
-            <li><a href="" ng-click="gotojobs()">Browse Jobs</a></li>
+            <li><a href="/jobs#titlebar" ng-click="division()">Browse Jobs</a></li>
          
           
           </ul>
