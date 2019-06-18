@@ -46,7 +46,7 @@
 
 	<div class="eight columns">
 		<!-- Select -->
-		<select data-placeholder="Filter by status" class="chosen-select-no-single">
+		<select data-placeholder="Filter by status" class="chosen-select-no-single" ng-model="searchkey">
 			<option value="">Filter by status</option>
 			<option value="new">New</option>
 			<option value="Contacted">Contacted</option>
@@ -58,15 +58,15 @@
 		<div class="margin-bottom-15"></div>
 	</div>
 
-	<div class="eight columns">
-		<!-- Select -->
-		<select data-placeholder="Newest first" class="chosen-select-no-single">
+<!-- 	<div class="eight columns">
+ -->		<!-- Select -->
+		<!-- <select data-placeholder="Newest first" class="chosen-select-no-single">
 			<option value="">Newest first</option>
 			<option value="name">Sort by name</option>
 			<option value="rating">Sort by rating</option>
 		</select>
 		<div class="margin-bottom-35"></div>
-	</div>
+	</div> -->
 
 
 	<!-- Applications -->
@@ -74,7 +74,7 @@
 		
 		<!-- Application #1 -->
 		<div>
-		<div class="application" ng-repeat="x in management.apps" >
+		<div class="application" ng-repeat="x in management.apps | filter : searchkey" >
 			<div class="app-content" >
 				
 				<!-- Name / Avatar -->

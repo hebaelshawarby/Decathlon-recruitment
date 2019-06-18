@@ -14,8 +14,8 @@ module.exports = function(router){
 
 	router.get('/getjobs',function(req,res){
 	
-				Job.find({},function(err,apps){
-		if(err) res.json({success: false,err:err});
+			Job.find({},function(err,apps){
+			if(err) res.json({success: false,err:err});
 		else
 
 		res.json({success:true,jobs:apps});
