@@ -503,6 +503,35 @@ router.post('/jobapplicants',function(req,res){
 		
 	
 })
+
+router.post('/getjobs1',function(req,res){
+	User.findOne({fullname:req.decoded.fullname},function(err,user){
+		if(err) throw err;
+		if(!user)
+			res.json({success:false,message:'no user'});
+		else
+			
+			{
+
+				Job.find({},function(err,apps){
+		if(err) res.json({success: false,err:err});
+		else
+
+		res.json({success:true,jobs:apps,permission:user.permission});
+		
+	})
+			}
+			
+			
+	})
+		
+	
+})
+
+
+
+
+
   
 
  //          DELETE AN APPLICANT

@@ -16,9 +16,7 @@ angular.module('userServices',[])
 		});
 	}
 	userFactory.postJob=function(regData){
-		return $http.post('/api/postjob' ,regData).then(function(data){
-			console.log(data)
-		});
+		return $http.post('/api/postjob' ,regData)
 	}
 	userFactory.getapplicantperJob=function(regData){
 		return $http.post('/api/jobapplicants' ,regData)
@@ -26,6 +24,9 @@ angular.module('userServices',[])
 	
 	userFactory.getJobs=function(){
 		return $http.get('/api/getjobs');
+	}
+	userFactory.getJobs1=function(){
+		return $http.get('/api/getjobs1');
 	}
 	userFactory.getrecentjobs=function(){
 		return $http.get('/api/getrecentjobs');

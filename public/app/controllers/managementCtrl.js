@@ -11,27 +11,27 @@ angular.module('managementController',['userServices','authServices'])
 
 function getJobs() {
         // Runs function to get all the users from database
-        User.getJobs().then(function(data) {
+        User.getJobs1().then(function(data) {
             // Check if able to get data from database
             if (data.data.success) {
             	console.log(data)
                 // Check which permissions the logged in user has
-                if (data.data.permission === 'admin' || data.data.permission === 'moderator') {
-                    app.jobs = data.data.jobs; // Assign users from database to variable
-                    app.loading = false; // Stop loading icon
-                    app.accessDenied = false; // Show table
+                // if (data.data.permission === 'admin' || data.data.permission === 'moderator') {
+                //     app.jobs = data.data.jobs; // Assign users from database to variable
+                //     app.loading = false; // Stop loading icon
+                //     app.accessDenied = false; // Show table
 
-                    // Check if logged in user is an admin or moderator
-                    if (data.data.permission === 'admin') {
-                        app.editAccess = true; // Show edit button
-                        app.deleteAccess = true; // Show delete button
-                    } else if (data.data.permission === 'moderator') {
-                        app.editAccess = true; // Show edit button
-                    }
-                } else {
-                    app.errorMsg = 'Insufficient Permissions'; // Reject edit and delete options
-                    app.loading = false; // Stop loading icon
-                }
+                //     // Check if logged in user is an admin or moderator
+                //     if (data.data.permission === 'admin') {
+                //         app.editAccess = true; // Show edit button
+                //         app.deleteAccess = true; // Show delete button
+                //     } else if (data.data.permission === 'moderator') {
+                //         app.editAccess = true; // Show edit button
+                //     }
+                // } else {
+                //     app.errorMsg = 'Insufficient Permissions'; // Reject edit and delete options
+                //     app.loading = false; // Stop loading icon
+                // }
             } else {
                 app.errorMsg = data.data.message; // Set error message
                 app.loading = false; // Stop loading icon
@@ -67,9 +67,10 @@ function getJobs() {
     app.deleteJob = function(username) {
         // Run function to delete a user
         User.deleteJob(username).then(function(data) {
+            console.log("here")
             // Check if able to delete user
             if (data.data.success) {
-                getJobs(); // Reset users on page
+                getJobs2(); // Reset users on page
             } else {
                 app.showMoreError = data.data.message; // Set error message
             }
@@ -134,10 +135,13 @@ $scope.gotojob=function(){
 }
 app.postJob=function(data){
   console.log(data)
-
+  data["date"]=Date.now();
   User.postJob(data).then(function(d){
     console.log(d)
+    if(d.data.success){
+        $location.path('/managejobs')
      // $window.location.href = '/viewjobs';
+    }
     
 
  })
@@ -152,13 +156,18 @@ app.postJob=function(data){
 
 app.jobs='';
 app.jobId='';
+
+
+function getJobs2() {
 User.getJobs().then(function(data){
 	console.log(data.data.jobs);
   app.jobs=data.data.jobs;
   app.jobLength=data.data.jobs.length
   console.log(app.jobLength)
 })
+}
 
+getJobs2();
 // $scope.appforJob=function(){
 // 	for(x=0;i<app.jobs.length;i++){
 // 		User.getapplicantperJob(app.jobs[i]).then(function(data){

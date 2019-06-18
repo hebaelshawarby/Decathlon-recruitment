@@ -85,7 +85,7 @@
           </ul>
         </li>
 
-        <li  ><a href="#" id="current" >For Employers</a>
+        <li  ><a href="#"  ng-show= "show" id="current" >For Employers</a>
           <ul>
             <li><a href="" ng-click="gotojob()">Add Job</a></li>
             <li><a href="" ng-click="gotomanage()">Manage Jobs</a></li>
@@ -93,8 +93,8 @@
           </ul>
         </li>
 
-        <li><a href="blog.html" id="current">Blog</a></li>
-        <li><a href="" ng-click="mainCtrl.logout()" ><i class="fa fa-lock"></i> Log out</a></li>
+<!--         <li><a href="blog.html" id="current">Blog</a></li>
+ -->        <li><a href="" ng-show= "show" ng-click="mainCtrl.logout()" id="current"><i class="fa fa-lock"></i> Log out</a></li>
       </ul>
 
 
@@ -138,28 +138,20 @@
       <h4>Company</h4>
       <ul class="footer-links">
         <li><a href="#">About Us</a></li>
-        <li><a href="#">Careers</a></li>
+        <li><a href="/jobs#titlebar" ng-click="division()">Careers</a></li>
         <li><a href="#">Our Blog</a></li>
         <li><a href="#">Terms of Service</a></li>
         <li><a href="#">Privacy Policy</a></li>
         
       </ul>
     </div>
-    
-    <div class="three columns">
-      <h4>Press</h4>
-      <ul class="footer-links">
-        <li><a href="#">Press Releases</a></li>
-        <li><a href="#">Testimonials</a></li>
-        <li><a href="#">Timeline</a></li>
-      </ul>
-    </div>    
+     
 
     <div class="three columns">
       <h4>Browse</h4>
       <ul class="footer-links">
 
-        <li><a href="#">Find Jobs</a></li>
+        <li><a href="/jobs#titlebar" ng-click="division()">Find Jobs</a></li>
 
       </ul>
     </div>
