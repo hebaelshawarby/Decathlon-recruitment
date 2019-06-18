@@ -40,9 +40,17 @@
 
 			<!-- Location -->
 			<div class="form">
-				<h5>Location <span>(optional)</span></h5>
-				<input class="search-field" type="text" placeholder="e.g. Cairo"  ng-model="data.location" value=""/>
-				<p class="note">Leave this blank if the location is not important</p>
+				<h5>Location Description</h5>
+				<input class="search-field" type="text" placeholder="e.g. Cairo"  ng-model="data.locationdes" value=""/>
+			</div>
+
+				<div class="form">
+				<h5>Location Area</h5>
+				<select data-placeholder="Full-Time"  ng-model="data.location">
+					<option value="newcairo">New Cairo</option>
+					<option value="sheraton">Sheraton</option>
+					<option value="6thoctober">6th of October</option>
+				</select>
 			</div>
 
 			<!-- Job Type -->
@@ -59,7 +67,6 @@
 				<h5>Posting Priority</h5>
 				<select data-placeholder="Full-Time" ng-model="data.stared">
 					<option value="high">High Priority</option>
-					<option value="normal">Normal</option>
 					<option value="low">Low</option>
 				</select>
 			</div>

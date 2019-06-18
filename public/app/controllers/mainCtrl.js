@@ -81,6 +81,7 @@ $scope.getOneJob=function(data){
 	$localstorage.set('jobtags',data.tags );
 	$localstorage.set('jobcategory',data.category );
 	$localstorage.set('joblocation',data.location );
+	$localstorage.set('joblocationdes',data.locationdes );
 	$localstorage.set('jobdate',data.date );
 	$localstorage.set('jobtype',data.jobtype );
 	$localstorage.set('jobdescription',data.description );
@@ -88,6 +89,8 @@ $scope.getOneJob=function(data){
 	$location.path('/jobPage')
 
 }
+
+$scope.joblocationdes=$localstorage.get('joblocationdes');
 $scope.jobtitle=$localstorage.get('jobname');
 $scope.jobtags=$localstorage.get('jobtags');
 $scope.jobcategory=$localstorage.get('jobcategory');

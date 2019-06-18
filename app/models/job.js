@@ -12,6 +12,9 @@ var jobSchema = new Schema({
         type:String,
         required: true
     },
+    locationdes:{
+        type:String
+    }
     jobtype:{
         type:String,
         required: true,

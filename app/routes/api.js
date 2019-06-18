@@ -229,6 +229,7 @@ router.post('/postjob',function(req,res){
 	job.tags=req.body.tags;
 	job.stared=req.body.stared;
 	job.sport=req.body.sport;
+	job.locationdes=req.body.locationdes;
 	console.log(job)
 	if(req.body.jobtitle==null||req.body.jobtitle=='')
 	{
