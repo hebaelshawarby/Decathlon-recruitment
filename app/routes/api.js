@@ -127,7 +127,7 @@ var client = nodemailer.createTransport(sgTransport(options));
 		user.save(function(err){
 		if(err){
 			console.log(err);
-			res.json({success: false,message:'ensure fname w kda',err:err});
+			res.json({success: false,message:'Ensure all fields are provided!',err:err});
 		}
 		else
 		{
@@ -157,7 +157,7 @@ var client = nodemailer.createTransport(sgTransport(options));
 		user.save(function(err){
 		if(err){
 			console.log(err);
-			res.json({success: false,message:'ensure fname w kda',err:err});
+			res.json({success: false,message:'Ensure all fields are provided!',err:err});
 		}
 		else
 		{
@@ -241,7 +241,7 @@ router.post('/postjob',function(req,res){
 		job.save(function(err){
 		if(err){
 
-			res.json({success: false,message:'ensure fname w kda',err:err});
+			res.json({success: false,message:'Ensure all fields are provided!',err:err});
 		}
 		else
 		{
@@ -348,7 +348,7 @@ router.post('/createmoderator',function(req,res){
 					user.save(function(err){
 					if(err){
 						console.log(err);
-						res.json({success: false,message:'ensure fname w kda',err:err});
+						res.json({success: false,message:'Ensure all fields are provided!',err:err});
 					}
 					else
 					{
@@ -393,7 +393,7 @@ router.post('/createapplicant',function(req,res){
 					applicant.save(function(err){
 					if(err){
 
-						res.json({success: false,message:'ensure fname w kda',err:err});
+						res.json({success: false,message:'Ensure all fields are provided!',err:err});
 					}
 					else
 					{

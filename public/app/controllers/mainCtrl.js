@@ -148,7 +148,8 @@ $scope.jobdescription=$localstorage.get('jobdescription');
 			}
 			else
 			{
-				$scope.successMsg=data.data.message
+
+				$scope.successMsg='Your application has been received! Please wait'
 				$location.path('/thankyou');
 		$timeout(function() {
 			$location.path('/');
