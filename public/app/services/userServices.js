@@ -11,9 +11,7 @@ angular.module('userServices',[])
        return savedData;
     }
 	userFactory.create=function(regData){
-		return $http.post('/api/apply' ,regData).then(function(data){
-			console.log(data)
-		});
+		return $http.post('/api/apply' ,regData)
 	}
 	userFactory.postJob=function(regData){
 		return $http.post('/api/postjob' ,regData)

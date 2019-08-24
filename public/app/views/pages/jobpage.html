@@ -140,8 +140,23 @@
 
 							<button class="send" data-toggle="modal" data-target="#myModal">Send Application</button>
 						</form>
-			
-					
+						<br>
+
+							<div class="row show-hide-message" ng-show="errorMsg">
+							<div class="alert alert-danger">
+								{{errorMsg }}
+							</div>
+							
+						</div>
+			<br>	
+						<div class="row show-hide-message" ng-show="successMsg">
+							<div class="alert alert-success">
+								{{successMsg}}
+							</div>
+							
+						</div>
+
+						
 
  
 

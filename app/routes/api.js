@@ -193,25 +193,26 @@ router.post('/apply',function(req,res){
 	applicant.date=req.body.date;
 	applicant.description=req.body.description;
 	applicant.sport=req.body.sport;
-	// if(req.body.fullname==null||req.body.fullname=='')
-	// {
-	// 	res.send('ensure username is provided');
-	// }
-	// else
-	// {
+	if(req.body.fullname==null||req.body.fullname=='' || req.body.phone==null || req.body.phone=='' || req.body.email==null || req.body.email=='' || 
+		req.body.cv==null || req.body.cv=='' || req.body.sport==null || req.body.sport=='')
+	{
+		res.json({success:false,message:'Ensure all fields are provided!'});
+	}
+	else
+	{
 		applicant.save(function(err){
 		if(err){
 
-			res.json({success: false,message:'ensure fname w kda',err:err});
+			res.json({success: false,message:'Ensure all fields are provided!',err:err});
 		}
 		else
 		{
 		
-			res.json({success: true,message:'saved'});
+			res.json({success: true,message:'Registeration is successfully sent'});
 		}
 
 	});
-	//}		
+	}		
 })
 
 

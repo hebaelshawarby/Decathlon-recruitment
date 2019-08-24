@@ -103,33 +103,66 @@ $scope.jobdescription=$localstorage.get('jobdescription');
 		console.log(regData)
 		console.log($scope.myfile)
 		var application={};
+		if(regData==null){
+			$scope.errorMsg='Ensure all fields are provided!'
+		}else
+		{
+
+
+		if(regData.fullname)
 		application['fullname']=regData.fullname;
+		else
+			$scope.errorMsg='Ensure Full name is provided!'
+		if(regData.email)
 		application['email']=regData.email;
+		else
+			$scope.errorMsg='Ensure Email is provided!'
+		if(regData.phone)
 		application['phone']=regData.phone;
+		else
+			$scope.errorMsg='Ensure phone is provided!'
 		application['jobtitle']=$scope.jobtitle;
 		application['date']=new Date();
+		if(regData.description)
 		application['description']=regData.description;
+		else
+			$scope.errorMsg='Ensure description is provided!'
+		if(regData.sport)
 		application['sport']=regData.sport;
-		
+		else
+			$scope.errorMsg='Ensure sport is provided!'
+
 		uploadFile.upload($scope.myfile).then(function(data){
 			console.log(data);
 		 
-
+			if(data.data.success)
 			application['cv']=data.data.data.filename;
+		else
+			$scope.errorMsg='Ensure cv is provided!'
 
 		User.create(application).then(function(data){
 			console.log(data);
-
-			$location.path('/thankyou');
+				
+			if (!data.data.success) {
+				$scope.errorMsg=data.data.message	
+			}
+			else
+			{
+				$scope.successMsg=data.data.message
+				$location.path('/thankyou');
 		$timeout(function() {
 			$location.path('/');
 		}, 3000);
 
+			}
+			
+
+			
 		});
 			
 
 		})
-		
+		}
 	}
 
 
