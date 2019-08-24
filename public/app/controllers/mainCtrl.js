@@ -101,6 +101,7 @@ $scope.jobdescription=$localstorage.get('jobdescription');
 
 	$scope.Submit=function(regData){
 		console.log(regData)
+		submitClicked=true
 		console.log($scope.myfile)
 		var application={};
 		if(regData==null){
@@ -144,7 +145,8 @@ $scope.jobdescription=$localstorage.get('jobdescription');
 			console.log(data);
 				
 			if (!data.data.success) {
-				$scope.errorMsg=data.data.message	
+				$scope.errorMsg='data.data.message'	
+				submitClicked=false
 			}
 			else
 			{
