@@ -134,7 +134,7 @@ $scope.jobdescription=$localstorage.get('jobdescription');
 
 		uploadFile.upload($scope.myfile).then(function(data){
 			console.log(data);
-		 
+		 $scope.successMsg1='Please wait'
 			if(data.data.success)
 			application['cv']=data.data.data.filename;
 		else
