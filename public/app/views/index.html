@@ -44,7 +44,7 @@
 
     
   </head>
-  <header class="sticky-header transparent">
+  <header class="transparent">
 <div class="container">
   <div class="sixteen columns">
   
@@ -85,7 +85,7 @@
           </ul>
         </li>
 
-        <li  ><a href="#"  id="current" >For Employers</a>
+        <li ng-show="show"  ><a href="#"  id="current" >For Employers</a>
           <ul>
             <li><a href="" ng-click="gotojob()">Add Job</a></li>
             <li><a href="" ng-click="gotomanage()">Manage Jobs</a></li>
@@ -94,7 +94,7 @@
         </li>
 
 <!--         <li><a href="blog.html" id="current">Blog</a></li>
- -->        <li><a href=""  ng-click="mainCtrl.logout()" id="current"><i class="fa fa-lock"></i> Log out</a></li>
+ -->        <li ng-show="show" ><a href=""  ng-click="mainCtrl.logout()" id="current"><i class="fa fa-lock"></i> Log out</a></li>
       </ul>
 
 
@@ -105,9 +105,9 @@
     </nav>
 
     <!-- Navigation -->
-    <div id="mobile-navigation">
+    <!-- <div id="mobile-navigation">
       <a href="#menu" class="menu-trigger"><i class="fa fa-reorder"></i> Menu</a>
-    </div>
+    </div> -->
 
   </div>
 </div>

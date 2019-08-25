@@ -5,11 +5,13 @@ angular.module('mainController',['userServices','authServices','fileModelDirecti
 
 // $rootScope.$on('$rootChangeStart',function(){
 
+
 		if(Auth.isLoggedIn()){
 		console.log('LOGGED IN');
 		app.authorized=true;
 		Auth.getUser().then(function(data){
-			console.log(data.data);
+			console.log(data);
+				$scope.show=true;
 			// app.username=data.data.username;
 			// app.email=data.data.email;
 			
@@ -27,6 +29,7 @@ angular.module('mainController',['userServices','authServices','fileModelDirecti
 				{
 					app.loadme=true;
 					$localstorage.set('show',false );
+					$scope.show=false;
 				}
 			})
 		})
@@ -35,7 +38,8 @@ angular.module('mainController',['userServices','authServices','fileModelDirecti
 		app.authorized=false;
 		console.log('not logged in');
 	}
-
+	$scope.show=$localstorage.get('show')
+console.log($scope.show)
 // })
 $scope.message=""
 $scope.istrue=app.authorized
@@ -101,7 +105,7 @@ $scope.jobdescription=$localstorage.get('jobdescription');
 
 	$scope.Submit=function(regData){
 		console.log(regData)
-		submitClicked=true
+		$scope.submitClicked=true
 		console.log($scope.myfile)
 		var application={};
 		if(regData==null){
@@ -145,8 +149,8 @@ $scope.jobdescription=$localstorage.get('jobdescription');
 			console.log(data);
 				
 			if (!data.data.success) {
-				$scope.errorMsg='data.data.message'	
-				submitClicked=false
+				$scope.errorMsg='Ensure all fields are provided'	
+		$scope.submitClicked=false
 			}
 			else
 			{
@@ -181,11 +185,13 @@ $scope.division=function(){
 
 
 app.sportjobs='';
-
+$scope.sportMsg='';
 app.sportJson={}
 app.sportJson['sport']=$localstorage.get('currentsport');
 User.getjobssport(app.sportJson).then(function(data){
 	app.sportjobs=data.data.jobs
+	if(app.sportjobs.length==0)
+		$scope.sportMsg='There are no current openings, please check back soon'
 	console.log(data.data.jobs)
   // app.sportjobs=data.data.jobs;
 })
@@ -196,11 +202,13 @@ $localstorage.set('currentsport',data)
 
 }
 app.locationjobs='';
-
+$scope.locMsg=''
 app.locationJson={}
 app.locationJson['location']=$localstorage.get('currentlocation');
 User.getjoblocation(app.locationJson).then(function(data){
 	app.locationjobs=data.data.jobs
+	if(app.locationjobs.length==0)
+		$scope.locMsg='There are no current openings, please check back soon'
 	console.log(data.data.jobs)
   // app.sportjobs=data.data.jobs;
 })
@@ -210,11 +218,13 @@ $localstorage.set('currentlocation',data)
 }
 
 app.catjobs='';
-
+$scope.catMsg='';
 app.catJson={}
 app.catJson['category']=$localstorage.get('categ');
 User.getjobscat(app.catJson).then(function(data){
 	app.catjobs=data.data.jobs
+	if(app.catjobs.length==0)
+		$scope.catMsg='There are no current openings, please check back soon'
 	console.log(data.data.jobs)
   // app.sportjobs=data.data.jobs;
 })
@@ -290,6 +300,7 @@ $scope.dataToPresent='';
 		console.log(loginData)
 		Auth.login(loginData).then(function(data){
 			console.log(data);
+				$scope.show=true;
 			$location.path('/management');
 		})
 

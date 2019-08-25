@@ -13,8 +13,42 @@
   background-size: cover;
 }
 
+    
+
+    .owl-theme {
+        .custom-nav {
+            position: absolute;
+            top: 20%;
+            left: 0;
+            right: 0;
+
+            .owl-prev, .owl-next {
+                position: absolute;
+                height: 100px;
+                color: inherit;
+                background: none;
+                border: none;
+                z-index: 100;
+
+                i {
+                    font-size: 2.5rem;
+                    color: #cecece;
+                }
+            }
+
+            .owl-prev {
+                left: 0;
+            }
+
+            .owl-next {
+                right: 0;
+            }
+        }
+    }
+
 
 </style>
+
 
 <body ng-controller="mainCtrl">
 <div id="wrapper">
@@ -92,7 +126,7 @@
   	<div class="categories-boxes-container">
 				
 				<!-- Box -->
-				<a href="/sport#titlebar" ng-click="getjobssport('trecking')" class="category-small-box">
+				<a href="/sport#titlebar" ng-click="getjobssport('trecking')" class="category-small-box item">
 					<div >
 					<img  src="https://s3.ap-south-1.amazonaws.com/decathlon-recruitment-staging/public/images/sport/1/decathlon_recruitment_trekking.png" >
 					</div>
@@ -100,72 +134,72 @@
 				</a>
 
 				<!-- Box -->
-				<a href="/sport#titlebar" ng-click="getjobssport('running')" class="category-small-box">
+				<a href="/sport#titlebar" ng-click="getjobssport('running')" class="category-small-box item">
 					<img src="https://s3.ap-south-1.amazonaws.com/decathlon-recruitment-staging/public/images/sport/3/decathlon_recruitment_running.png">
 					<h4>RUNNING</h4>
 				</a>
 
 				<!-- Box -->
-				<a href="/sport#titlebar" ng-click="getjobssport('gym')" class="category-small-box">
+				<a href="/sport#titlebar" ng-click="getjobssport('gym')" class="category-small-box item">
 					<img src="https://s3.ap-south-1.amazonaws.com/decathlon-recruitment-staging/public/images/sport/6/decathlon_recruitment_gym.png">
 					<h4>GYM</h4>
 				</a>
 
 				<!-- Box -->
-				<a href="/sport#titlebar" ng-click="getjobssport('football')"class="category-small-box">
+				<a href="/sport#titlebar" ng-click="getjobssport('football')"class="category-small-box item">
 
 					<img src="https://s3.ap-south-1.amazonaws.com/decathlon-recruitment-staging/public/images/sport/8/decathlon_recruitment_football.png">
 					<h4>FOOTBALL</h4>
 				</a>
 
 				<!-- Box -->
-				<a href="/sport#titlebar" ng-click="getjobssport('skateboarding')"class="category-small-box">
+				<a href="/sport#titlebar" ng-click="getjobssport('skateboarding')"class="category-small-box item">
 					<!-- <i class="ln ln-icon-Medical-Sign"></i> -->
 				<img src="https://s3.ap-south-1.amazonaws.com/decathlon-recruitment-staging/public/images/sport/10/decathlon_recruitment_skateboarding.png">
 					<h4>SKATEBOARDING</h4>
 				</a>
 
 				<!-- Box -->
-				<a href="/sport#titlebar" ng-click="getjobssport('cycling')"class="category-small-box owl-item active">
+				<a href="/sport#titlebar" ng-click="getjobssport('cycling')"class="category-small-box owl-item active item">
 					<img src="https://s3.ap-south-1.amazonaws.com/decathlon-recruitment-staging/public/images/sport/2/decathlon_recruitment_road_bike.png">
 					<h4>CYCLING</h4>
 				</a>
 
 				<!-- Box -->
-				<a href="/sport#titlebar" ng-click="getjobssport('cricket')" class="category-small-box owl-item active">
+				<a href="/sport#titlebar" ng-click="getjobssport('cricket')" class="category-small-box owl-item active item">
 					<img src="https://s3.ap-south-1.amazonaws.com/decathlon-recruitment-staging/public/images/sport/4/decathlon_recruitment_cricket.png">
 					<h4>CRICKET</h4>
 				</a>
 
 				<!-- Box -->
-				<a href="/sport#titlebar" ng-click="getjobssport('swimming')" class="category-small-box owl-item active" >
+				<a href="/sport#titlebar" ng-click="getjobssport('swimming')" class="category-small-box owl-item active item" >
 				<img src="https://s3.ap-south-1.amazonaws.com/decathlon-recruitment-staging/public/images/sport/7/decathlon_recruitment_swimming.png">
 					<h4>SWIMMING</h4>
 				</a>
 
-				<a href="/sport#titlebar" ng-click="getjobssport('volleyball')" class="category-small-box owl-item">
+				<a href="/sport#titlebar" ng-click="getjobssport('volleyball')" class="category-small-box owl-item item">
 					<img src="https://s3.ap-south-1.amazonaws.com/decathlon-recruitment-staging/public/images/sport/9/decathlon_recruitment_volleyball.png">
 					<h4>VOLLEYBALL</h4>
 				</a>
 
-				<a href="/sport#titlebar" ng-click="getjobssport('badminton')"class="category-small-box owl-item ">
+				<a href="/sport#titlebar" ng-click="getjobssport('badminton')"class="category-small-box owl-item item ">
 					<img src="https://s3.ap-south-1.amazonaws.com/decathlon-recruitment-staging/public/images/sport/11/decathlon_recruitment_badminton.png">
 					<h4>BADMINTON</h4>
 				</a>
 
-				<a href="/sport#titlebar" ng-click="getjobssport('americanfootball')"class="category-small-box owl-item">
+				<a href="/sport#titlebar" ng-click="getjobssport('americanfootball')"class="category-small-box owl-item item">
 					<img src="https://s3.ap-south-1.amazonaws.com/decathlon-recruitment-staging/public/images/sport/12/decathlon_recruitment_american_football.png">
 					<h4>AMERICAN FOOTBALL</h4>
 				</a>
-				<a href="/sport#titlebar" ng-click="getjobssport('archery')" class="category-small-box owl-item">
+				<a href="/sport#titlebar" ng-click="getjobssport('archery')" class="category-small-box owl-item item">
 					<img src="https://s3.ap-south-1.amazonaws.com/decathlon-recruitment-staging/public/images/sport/13/decathlon_recruitment_archery.png">
 					<h4>ARCHERY</h4>
 					</a>
-				<a href="/sport#titlebar" ng-click="getjobssport('basketball')"class="category-small-box owl-item">
+				<a href="/sport#titlebar" ng-click="getjobssport('basketball')"class="category-small-box owl-item item">
 					<img src="https://s3.ap-south-1.amazonaws.com/decathlon-recruitment-staging/public/images/sport/16/decathlon_recruitment_basketball.png">
 					<h4>BASKET BALL</h4>
-				</a>
-				<a href="/sport#titlebar" ng-click="getjobssport('boxing')"class="category-small-box owl-item">
+				</a> 
+				<a href="/sport#titlebar" ng-click="getjobssport('boxing')"class="category-small-box owl-item item">
 					<img src="https://s3.ap-south-1.amazonaws.com/decathlon-recruitment-staging/public/images/sport/20/decathlon_recruitment_boxing.png">
 					<h4>BOXING</h4>
 				</a>
@@ -179,8 +213,18 @@
 
 		<div class="clearfix"></div>
 		<div class="margin-top-30"></div>
-		<div class="owl-nav"><button type="button" role="presentation" class="owl-prev disabled">&lt;</button><button type="button" role="presentation" class="owl-next">&gt;</button></div>
+
+		 <div class="owl-theme">
+        <div class="owl-controls">
+            <div class="custom-nav owl-nav"></div>
+        </div>
+    </div>
+		<div class="owl-nav"><button type="button" role="presentation" class="owl-prev">&lt;</button><button type="button" role="presentation" class="owl-next">&gt;</button></div>
+
+<!-- 		<div class="owl-nav"><button type="button" role="presentation" class="owl-prev disabled">&lt;</button><button type="button" role="presentation" class="owl-next">&gt;</button></div> -->
 		<a href="/jobs#titlebar" ng-click="division()" class="button centered">Browse All Sports</a>
+
+
 		<div class="margin-bottom-55"></div>
 
   </div>
@@ -556,6 +600,18 @@
 		<h2 class="flip-hidden">Get Started <i class="fa fa-angle-right"></i></h2>
 	</div>
 </a>
+
+
+
+
+
+<div id="content-simple" class="site-content shop-grid"> <div class="container"> <div class="simple-banner-desktop hidden-sm-down"> <a href="https://www.decathlon-united.com/en"> <img src="assets/images/uu.jpg" class="img-responsive loaded" alt=""  data-was-processed="true"> </a> </div> <div class="simple-banner-mobile hidden-md-up">	 </div> </div> </div>
+
+
+
+
+
+
 <!-- Flip banner / End -->
 
 
@@ -627,7 +683,30 @@
 </div>
 <!-- Wrapper / End -->
 <script src="assets/js/custom.js"></script>
-
+<script type="text/javascript">
+	$('.main-content .owl-carousel').owlCarousel({
+    stagePadding: 50,
+    loop: true,
+    margin: 10,
+    nav: true,
+    navText: [
+        '<i class="fa fa-angle-left" aria-hidden="true"></i>',
+        '<i class="fa fa-angle-right" aria-hidden="true"></i>'
+    ],
+    navContainer: '.main-content .custom-nav',
+    responsive:{
+        0:{
+            items: 1
+        },
+        600:{
+            items: 3
+        },
+        1000:{
+            items: 5
+        }
+    }
+});
+</script>
 
 
 </body>
