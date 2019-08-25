@@ -63,7 +63,7 @@ app=angular.module('appRoutes',['ngRoute'])
 		controller:'mainCtrl',
 		controllerAs:'mainCtrl'
 	})
-	.when('/login',{
+	.when('/c19xON2Yir3RgOkKoOUcpH2v7dyaLVbITOYxJU827woSGzLjpwk6H1wXoSTTvIyBbPSQpDrvn4sxDEEUh8M6rPvd9CU5kGjXDUYB6R2K6sJdvYQlaQdDOyD7nsq90LyZAc8J2CV6t65spbO2luPNa8xpMuiA4FQh',{
 		templateUrl:'app/views/pages/login.html',
 				controller:'mainCtrl',
 		controllerAs:'mainCtrl'

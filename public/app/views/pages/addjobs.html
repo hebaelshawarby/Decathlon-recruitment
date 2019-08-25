@@ -14,9 +14,20 @@
 
 		<div class="sixteen columns">
 			<h2><i class="fa fa-plus-circle"></i> Add Job</h2>
+			<nav id="breadcrumbs">
+				<ul>
+					<li>You are here:</li>
+					<li><a href="#">Home</a></li>
+					<li>Job Dashboard</li>
+								  <li><a href="" ng-click="gotojob()">Add Job</a></li>
+            <li><a href="" ng-click="gotomanage()">Manage Jobs</a></li>
+            <li><a href="" ng-click="gotoapp()">Manage Applications</a></li>
+				</ul>
+			</nav>
 		</div>
 
 	</div>
+
 </div>
 
 
@@ -137,7 +148,7 @@
 			
 
 			<div class="divider margin-top-0"></div>
-			<a href="" class="button big margin-top-5" ng-click="management.postJob(data)">Preview <i class="fa fa-arrow-circle-right"></i></a>
+			<a href="" class="button big margin-top-5" ng-click="management.postJob(data)">Add Job <i class="fa fa-arrow-circle-right"></i></a>
 
 </form>
 		</div>
